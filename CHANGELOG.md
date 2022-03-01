@@ -5,6 +5,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 2.0.0 (2022-02-24)
+
+
+### Bug fixes
+
+* refactor ci/cd 
+
+### Features
+
+* add multi environment support 
+
+### Breaking change
+
+* variableKeys became an object and no longer can be used as an array or a string 
 
 # 1.2.2 (2022-02-06)
 

@@ -29,8 +29,11 @@ A `KameleoonClient` created using `createClient()` to run experiments and retriv
   - `siteCode: string` - code of the website on which experiments run. This unique code id can be found in our platform.
   - `visitorCode: string` (optional) - visitor code is an optional parameter, if it is used, it automatically create custom data to check if visitor is targeted.
   - `option: SDKConfiguration` (optional) - JSON object filled with configuration parameters.
-    - `actions_configuration_refresh_interval: number` (optional) - this specifies the refresh interval, in minutes, of the configuration for experiments and feature flags (the active experiments and feature flags are fetched from the Kameleoon servers). It means that once you launch an experiment, pause it, or stop it the changes can take (at most) the duration of this interval to be propagated in production to your servers. If not specified, the **default interval is 60 minutes**.
-    - `visitor_data_maximum_size: number` (optional) - this specifies the maximum amount of memory that [the map holding all the visitor data](https://developers.kameleoon.com/javascript-sdk.html#technical-considerations) (in particular custom data) can take (in MB on the browser LocalStorage). If specified, **max size is 5MB**. If not specified, the **default size is 1MB**.
+    - `actions_configuration_refresh_interval: number` (optional) - an option specifying the refresh interval, in minutes, of the configuration for experiments and feature flags (the active experiments and feature flags are fetched from the Kameleoon servers). It means that once you launch an experiment, pause it, or stop it the changes can take (at most) the duration of this interval to be propagated in production to your servers. If not specified, the **default interval is 60 minutes**.
+    - `visitor_data_maximum_size: number` (optional) - an option specifying the maximum amount of memory that [the map holding all the visitor data](https://developers.kameleoon.com/javascript-sdk.html#technical-considerations) (in particular custom data) can take (in MB on the browser LocalStorage). If specified, **max size is 5MB**. If not specified, the **default size is 1MB**.
+    - `environment: string` (optional) - an option specifying which feature flag configuration will be used, by default each feature flag is split into **production**, **staging**, **development**. If not specified, will be set to **default value** of **production**.
+
+    **NOTICE:** make sure not to use several client instances in one application with different `environment` as it is not fully supported yet and might lead to local storage configuration being overwritten and cause bugs.
 
 #### Returns
 - A `KameleoonClient` instance.
@@ -40,11 +43,12 @@ A `KameleoonClient` created using `createClient()` to run experiments and retriv
 import { createClient } from '@kameleoon/react-sdk';
 
 const client = createClient({
-  siteCode: '0fpmcg34lg',
+  siteCode: 'dfl102d38e',
   visitorCode: '280295',
   options: {
     visitor_data_maximum_size: 1,
-    actions_configuration_refresh_interval: 60
+    actions_configuration_refresh_interval: 60,
+    environment: 'staging'
   }
 });
 ```
@@ -61,11 +65,12 @@ Use this provider in root level by wrapping your app to gain an access to `Kamel
 import { KameleoonProvider, createClient } from '@kameleoon/react-sdk';
 
 const client = createClient({
-  siteCode: '0fpmcg34lg'
+  siteCode: 'dfl102d38e'
   visitorCode: '280295',
   options: {
     visitor_data_maximum_size: 1,
-    actions_configuration_refresh_interval: 60
+    actions_configuration_refresh_interval: 60,
+    environment: 'staging'
   }
 });
 
@@ -128,7 +133,7 @@ Returns the status of a feature flag and its variables.
 #### Arguments
 - `featureParams: IFeatureParams`
   - `featureKey: string | number` - unique identifier or key of the feature you want to expose to a user.
-  - `variableKey: string | string[]` - key of the variable.
+  - `variableKeys: VariableKeysType` - keys for the variables on different environments.
   - `visitorCode: string` (optional) - unique identifier of the user.
 
 #### Returns
@@ -148,7 +153,7 @@ function MyComponent(): JSX.Element {
   const { getVisitorCode } = useVisitorCode();
   const { isActive } = useFeature({
     featureKey: 'red-button',
-    variableKey: 'red-button',
+    variableKeys: { production: 'red-button' },
     visitorCode: getVisitorCode('example.com'),
   });
 
@@ -171,7 +176,7 @@ class MyComponent extends React.Component {
 
 export default withFeature({
   featureKey: 'red-button',
-  variableKey: 'red-button',
+  variableKeys: { production: 'red-button' },
   visitorCode: '280295'
 })(MyComponent);
 ```
@@ -180,7 +185,7 @@ export default withFeature({
 #### Props
 - `children: (featureResult: IFeature) => ReactNode` - child elements of `Feature`.
 - `featureKey: string | number` - unique identifier or key of the feature you want to expose to a user.
-- `variableKey: string` - key of the variable.
+- `variableKeys: VariableKeysType` - keys for the variables on different environments.
 - `visitorCode: string` - unique identifier of the user.
 
 #### Returns
@@ -203,7 +208,7 @@ class MyComponent extends React.Component {
 class MyCompWrapper extends React.Component { 
   render() {
     return(
-      <Feature featureKey="red-button" variableKey="red-button" visitorCode="280295">
+      <Feature featureKey="red-button" variableKeys={{production: "red-button"}} visitorCode="280295">
         (({isActive, variables}) => (
           <MyComponent isActive={isActive} variables={variables} />
         ))
