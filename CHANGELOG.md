@@ -8,9 +8,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # 2.0.0 (2022-02-24)
 
 
-### Bug fixes
+### Refactor
 
-* refactor ci/cd 
+* add ci/cd automatic changelog and readme update for github repository
 
 ### Features
 
