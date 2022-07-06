@@ -137,9 +137,14 @@ Returns the status of a feature flag and its variables.
   - `visitorCode: string` (optional) - unique identifier of the user.
 
 #### Returns
-- `featureResult: IFeature`
+- `errors: KameleoonException[]` - an array of errors thrown as a result of getting variables or feature flag status.
+- `feature` -  an object containing feature flag status and variables
   - `isActive: boolean` - feature flag status.
   - `variables: FeatureVariableType[]` - feature flag variables.
+
+#### Exceptions
+- `KameleoonException.NotTargeted` - Exception indicating that the current visitor / user did not trigger the required targeting conditions for this feature. The targeting conditions are defined via Kameleoon's segment builder.
+- `KameleoonException.FeatureConfigurationNotFound` - Exception indicating that the requested feature ID has not been found in the internal configuration of the SDK. This is usually normal and means that the feature flag has not yet been activated on Kameleoon's side (but code implementing the feature is already deployed on the web-application's side).
 
 
 In this examples, if the feature flag with the `red-button` key is enabled, theme of button will set to red.
@@ -147,15 +152,27 @@ In this examples, if the feature flag with the `red-button` key is enabled, them
 #### Example
 ```jsx
 import { Button } from '@kameleoon/ui';
-import { useFeature, useVisitorCode } from '@kameleoon/react-sdk';
+import { useFeature, useVisitorCode, KameleoonException } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
   const { getVisitorCode } = useVisitorCode();
-  const { isActive } = useFeature({
+  const { feature, errors } = useFeature({
     featureKey: 'red-button',
     variableKeys: { production: 'red-button' },
     visitorCode: getVisitorCode('example.com'),
   });
+
+  for (const error of errors) {
+    if (error.type === KameleoonException.NotTargeted) {
+      // Handle error
+    }
+
+    if (error.type === KameleoonException.FeatureConfigurationNotFound) {
+      // Handle error
+    }
+  }
+
+  const { isActive, variables } = feature;
 
   return <Button theme={isActive ? 'red' : 'green'} />;
 }
@@ -165,12 +182,34 @@ function MyComponent(): JSX.Element {
 #### Example
 ```jsx
 import { Button } from '@kameleoon/ui';
-import { withFeature } from '@kameleoon/react-sdk';
+import { withFeature, KameleoonException } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
+  state = { 
+    isActive: false,
+    variables: [],
+  }
+
+  componentDidMount() {
+    const { feature, errors } = this.props;
+
+    for (const error of errors) {
+      if (error.type === KameleoonException.NotTargeted) {
+        // Handle error
+      }
+
+      if (error.type === KameleoonException.FeatureConfigurationNotFound) {
+        // Handle error
+      }
+    }
+
+    const { isActive, variables } = feature;
+
+    this.setState({ isActive, variables });
+  }
+
   render() {
-    const { isActive, variables } = this.props;
-    return <Button theme={isActive ? 'red' : 'green'} />;
+    return <Button theme={this.isActive ? 'red' : 'green'} />;
   }
 }
 
@@ -189,7 +228,9 @@ export default withFeature({
 - `visitorCode: string` - unique identifier of the user.
 
 #### Returns
-- A wrapped component with the following props:
+A wrapped component with the following props:
+- `errors: KameleoonException[]` - an array of errors thrown as a result of getting variables or feature flag status.
+- `feature` -  an object containing feature flag status and variables
   - `isActive: boolean` - feature flag status.
   - `variables: FeatureVariableType[]` - feature flag variables.
 
@@ -199,18 +240,44 @@ import { Button } from '@kameleoon/ui';
 import { Feature } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
+  state = { 
+    isActive: false,
+    variables: [],
+  }
+
+  componentDidMount() {
+    const { feature, errors } = this.props;
+
+    for (const error of errors) {
+      if (error.type === KameleoonException.NotTargeted) {
+        // Handle error
+      }
+
+      if (error.type === KameleoonException.FeatureConfigurationNotFound) {
+        // Handle error
+      }
+    }
+
+    const { isActive, variables } = feature;
+
+    this.setState({ isActive, variables });
+  }
+
   render() {
-    const { isActive, variables } = this.props;
-    return <Button theme={isActive ? 'red' : 'green'} />;
+    return <Button theme={this.isActive ? 'red' : 'green'} />;
   }
 }
 
-class MyCompWrapper extends React.Component { 
+class MyComponentWrapper extends React.Component { 
   render() {
     return(
-      <Feature featureKey="red-button" variableKeys={{production: "red-button"}} visitorCode="280295">
-        (({isActive, variables}) => (
-          <MyComponent isActive={isActive} variables={variables} />
+      <Feature 
+        featureKey="red-button" 
+        variableKeys={{production: "red-button"}} 
+        visitorCode="280295"
+      >
+        (({ feature, errors }) => (
+          <MyComponent feature={feature} errors={errors} />
         ))
       </Feature>;
     )
@@ -304,7 +371,7 @@ You have to make sure that proper error handling is set up in your code as shown
 ##### Please Note:
 _By convention, the reference (original variation) always has an ID equal to **0**._
 
-#### Exceptions Thrown
+#### Exceptions
 - `KameleoonException.NotTargeted` - Exception indicating that the current visitor / user did not trigger the required targeting conditions for this experiment. The targeting conditions are defined via Kameleoon's segment builder.
 - `KameleoonException.NotActivated` - Exception indicating that the current visitor / user triggered the experiment (met the targeting conditions), but did not activate it. The most common reason for that is that part of the traffic has been excluded from the experiment and should not be tracked.
 - `KameleoonException.ExperimentConfigurationNotFound` - Exception indicating that the requested experiment ID has not been found in the internal configuration of the SDK. This is usually normal and means that the experiment has not yet been started on Kameleoon's side (but code triggering / implementing variations is already deployed on the web-application's side).
@@ -320,19 +387,32 @@ _By convention, the reference (original variation) always has an ID equal to **0
 ### `useTriggerExperiment`
 #### Returns
 - A callback function `getVariationId()`.
+- An `error` object containing `name`, `type` and `message` strings, certain type of exception can be handled using `error.type` and `KameleoonException`. If there is no errors on the client `error` will be `null`. 
 
 #### Example
 ```jsx
 import { useEffect } from 'react';
-import { useTriggerExperiment, useVisitorCode } from '@kameleoon/react-sdk';
+import { useTriggerExperiment, useVisitorCode, KameleoonException } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
-  const { getVariationId } = useTriggerExperiment();
+  const { getVariationId, error } = useTriggerExperiment();
   const { getVisitorCode } = useVisitorCode();
 
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
     const experimentId = 12341;
+
+    if (error?.type === KameleoonException.ExperimentConfigurationNotFound) {
+      // Handle exception
+    }
+
+    if (error?.type === KameleoonException.NotTargeted) {
+      // Handle exception
+    }
+
+    if (error?.type === KameleoonException.NotActivated) {
+      // Handle exception
+    }
 
     const variationId = getVariationId(visitorCode, experimentId);
   }, []);
@@ -350,13 +430,25 @@ function MyComponent(): JSX.Element {
 
 #### Example
 ```jsx
-import { withVisitorCode, withTriggerExperiment, compose } from '@kameleoon/react-sdk';
+import { withVisitorCode, withTriggerExperiment, compose, KameleoonException } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
   componentDidMount() {
-    const { getVisitorCode, getVariationId } = this.props;
+    const { getVisitorCode, getVariationId, triggerExperimentError } = this.props;
     const visitorCode = getVisitorCode('example.com');
     const experimentId = 230243;
+
+    if (triggerExperimentError?.type === KameleoonException.ExperimentConfigurationNotFound) {
+      // Handle exception
+    }
+
+    if (triggerExperimentError?.type === KameleoonException.NotTargeted) {
+      // Handle exception
+    }
+
+    if (triggerExperimentError?.type === KameleoonException.NotActivated) {
+      // Handle exception
+    }
 
     const variationId = getVariationId(visitorCode, experimentId);
   }
@@ -370,9 +462,9 @@ export default compose(withVisitorCode, withTriggerExperiment)(MyComponent);
 ## Activate feature
 A callback function `hasFeature()` which validates if user has been associated with this feature. If it is fails, callback returns value **false**, otherwise **true**.
 
-If feature flag is not activated, `KameleoonException.FeatureConfigurationNotFound` exception will be thrown. Please, make sure to handle properly the error.
+If feature flag is not activated, `KameleoonException.FeatureConfigurationNotFound` exception will be thrown. Please, make sure to handle the error properly.
 
-#### Exceptions Thrown
+#### Exceptions
 - `KameleoonException.NotTargeted` - Exception indicating that the current visitor / user did not trigger the required targeting conditions for this feature. The targeting conditions are defined via Kameleoon's segment builder.
 - `KameleoonException.FeatureConfigurationNotFound` - Exception indicating that the requested feature ID has not been found in the internal configuration of the SDK. This is usually normal and means that the feature flag has not yet been activated on Kameleoon's side (but code implementing the feature is already deployed on the web-application's side).
 
@@ -387,19 +479,28 @@ If feature flag is not activated, `KameleoonException.FeatureConfigurationNotFou
 ### `useActivateFeature`
 #### Returns
 - A callback function `hasFeature()`.
+- An `error` object containing `name`, `type` and `message` strings, certain type of exception can be handled using `error.type` and `KameleoonException`. If there is no errors on the client `error` will be `null`. 
 
 #### Example
 ```jsx
 import { useEffect } from 'react';
-import { useActivateFeature, useVisitorCode } from '@kameleoon/react-sdk';
+import { useActivateFeature, useVisitorCode, KameleoonException } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
-  const { hasFeature } = useActivateFeature();
+  const { hasFeature, error } = useActivateFeature();
   const { getVisitorCode } = useVisitorCode();
 
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
     const featureKey = 'example-feature-key';
+
+    if (error?.type === KameleoonException.FeatureConfigurationNotFound) {
+      // Handle exception
+    }
+
+    if (error?.type === KameleoonException.NotTargeted) {
+      // Handle exception
+    }
 
     const feature = hasFeature(visitorCode, featureKey);
   }, []);
@@ -410,20 +511,28 @@ function MyComponent(): JSX.Element {
 
 ###  `withActivateFeature`
 #### Arguments
-- `Component: React.Component` - component which will be enhanced with the prop `hasFeature()`.
+- `Component: React.Component` - component which will be enhanced with the prop `hasFeature()` and `activateFeatureError`.
 
 #### Returns
 - A wrapped component with additional props as described above.
 
 #### Example
 ```jsx
-import { withVisitorCode, withActivateFeature, compose } from '@kameleoon/react-sdk';
+import { withVisitorCode, withActivateFeature, KameleoonException, compose } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
   componentDidMount() {
-    const { getVisitorCode, hasFeature } = this.props;
+    const { getVisitorCode, hasFeature, activateFeatureError } = this.props;
     const visitorCode = getVisitorCode('example.com');
     const featureKey = 'example-feature-key';
+
+    if (activateFeatureError?.type === KameleoonException.FeatureConfigurationNotFound) {
+      // Handle exception
+    }
+
+    if (activateFeatureError?.type === KameleoonException.NotTargeted) {
+      // Handle exception
+    }
 
     const feature = hasFeature(visitorCode, featureKey);
   }
@@ -439,7 +548,7 @@ A callback function `getVariationAssociatedData()` which retrieves JSON data ass
 
 This callback function takes the `variationId` as a parameter and will return the data as a JavaScript object. It will throw an exception `(KameleoonException.VariationConfigurationNotFound)` if the `variationId` is wrong or corresponds to an experiment that is not yet online.
 
-#### Exceptions Thrown
+#### Exceptions
 - `KameleoonException.VariationConfigurationNotFound` - Exception indicating that the requested variation ID has not been found in the internal configuration of the SDK. This is usually normal and means that the variation's corresponding experiment has not yet been activated on Kameleoon's side.
 
 #### `getVariationAssociatedData()`
@@ -453,17 +562,23 @@ This callback function takes the `variationId` as a parameter and will return th
 ### `useVariationAssociatedData`
 #### Returns
 - A callback function `getVariationAssociatedData()`.
+- An `error` object containing `name`, `type` and `message` strings, certain type of exception can be handled using `error.type` and `KameleoonException`. If there is no errors on the client `error` will be `null`. 
 
 #### Example
 ```jsx
 import { useEffect } from 'react';
-import { useVariationAssociatedData } from '@kameleoon/react-sdk';
+import { useVariationAssociatedData, KameleoonException } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
-  const { getVariationAssociatedData } = useVariationAssociatedData();
+  const { getVariationAssociatedData, error } = useVariationAssociatedData();
 
   useEffect(() => {
     const variationId = 280295;
+
+    if (error?.type === KameleoonException.VariationConfigurationNotFound) {
+      // Handle error
+    }
+
     const data = getVariationAssociatedData(variationId);
   }, []);
 
@@ -479,12 +594,17 @@ function MyComponent(): JSX.Element {
 
 #### Example
 ```jsx
-import { withVariationAssociatedData } from '@kameleoon/react-sdk';
+import { withVariationAssociatedData, KameleoonException } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
   componentDidMount() {
-    const { getVariationAssociatedData } = this.props;
+    const { getVariationAssociatedData, variationAssociatedDataError } = this.props;
     const variationId = 280295;
+
+    if (variationAssociatedDataError?.type === KameleoonException.VariationConfigurationNotFound) {
+      // Handle error
+    }
+
     const data = getVariationAssociatedData(variationId);
   }
 
@@ -798,7 +918,6 @@ The `flush()` callback function is non-blocking as the server call is made async
 #### Example
 ```jsx
 import { useEffect } from 'react';
-import { Button } from '@kameleoon/ui';
 import {
   useAddData,
   useBrowser,
@@ -862,6 +981,86 @@ export default compose(
 )(MyComponent);
 ```
 
+## Run when ready
+In certain scenarios when working with Kameleoon API it's important to make sure that the client was initialized properly within the certain timeout. It's especially important while using `triggerExperiment()` or `trackConversion()`. For these cases it's possible to use `runWhenReady()` function, retrieved by `useRunWhenReady` hook or `withRunWhenReady` high-order component.
+
+The `runWhenReady()` function makes sure that Kameleoon Client will be initialized properly using HTTP call withing the specified timeout.
+
+#### `runWhenReady()`
+##### Arguments
+- `successCallback: () => void` - callback which will be executed on successful client initialization.
+- `errorCallback: () => void` - callback which will be executed if client wasn't able to initialize during the timeout.
+- `timeout?: number` - timeout which is given to perform HTTP call for initialization in ms (by default: 2000 ms).
+
+#### Example
+```jsx
+import { useEffect, useCallback, useState } from 'react';
+import { useRunWhenReady, useTriggerExperiment } from '@kameleoon/react-sdk';
+
+function MyComponent(): JSX.Element {
+  const { runWhenReady } = useRunWhenReady();
+  const { getVariationId } = useTriggerExperiment();
+
+  const [variationId, setVariationId] = useState<number>(0);
+
+  const getVariationSuccessCallback = useCallback(() => {
+    const id = getVariationId('user_id', 12345);
+    setVariationId(id);
+  }, [getVariationId, isRenderProps]);
+
+  const getVariationErrorCallback = useCallback(() => {
+    throw new Error(
+      "Couldn't get server configuration from HTTP request in a specified time",
+    );
+  }, []);
+
+  useEffect(() => {
+    runWhenReady(
+      getVariationSuccessCallback,
+      getVariationErrorCallback,
+      1000,
+    );
+  }, [runWhenReady, getVariationSuccessCallback, getVariationErrorCallback]);
+
+  ...
+}
+```
+
+### `withRunWhenReady`
+#### Arguments
+- `Component: React.Component` - component which will be enhanced with the prop `runWhenReady()`.
+
+#### Example
+```jsx
+import { useEffect, useCallback, useState } from 'react';
+import { withRunWhenReady, withTriggerExperiment } from '@kameleoon/react-sdk';
+
+class MyComponent extends React.Component {
+  variationSuccessCallback(): void {
+    const id = this.props.getVariationId('user_id', 12345);
+    setVariationId(id);
+  }
+
+  variationErrorCallback(): void {
+    const id = this.props.getVariationId('user_id', 12345);
+    setVariationId(id);
+  }
+
+  componentDidMount() {
+    this.props.runWhenReady(this.variationSuccessCallback, this.variationErrorCallback, 1000);
+  }
+
+  ...
+}
+
+export default compose(
+  withRunWhenReady,
+  withTriggerExperiment,
+)(MyComponent);
+```
+
+#### Returns
+- A wrapped component with additional props as described above.
 
 ## Browser
 A callback function `addBrowser()` adds browser type.

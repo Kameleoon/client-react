@@ -5,6 +5,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 3.0.0 (2022-07-01)
+
+
+### Bug fixes
+
+* unused `useError` hook in `useTriggerExperiment` according to code review 
+
+### Refactor
+
+* documentation and methods description according to code review 
+
+### Features
+
+* improved error handling 
+* error handling 
+
+### Breaking change
+
+* `useFeature` hook and `withFeature` high-order component can no longer be used the same way 
+
 # 2.1.0 (2022-04-18)
 
 
