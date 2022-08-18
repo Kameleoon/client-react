@@ -5,6 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 4.0.0 (2022-08-18)
+
+### Features
+
+* swap feature arguments 
+* add device custom data 
+
+### Refactor
+
+* update documentation and gitlab script 
+
 # 3.0.0 (2022-07-01)
 
 

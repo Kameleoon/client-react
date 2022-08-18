@@ -470,8 +470,8 @@ If feature flag is not activated, `KameleoonException.FeatureConfigurationNotFou
 
 #### `hasFeature()`
 ##### Arguments
-- `visitorCode: string` - unique identifier of the user.
 - `featureKey: string | number` - unique identifier or key of the feature you want to expose to a user.
+- `visitorCode: string` (optional) - unique identifier of the user.
 
 ##### Returns
 - A `value: boolean` of the feature that is registered for a given `visitorCode`.
@@ -502,7 +502,7 @@ function MyComponent(): JSX.Element {
       // Handle exception
     }
 
-    const feature = hasFeature(visitorCode, featureKey);
+    const feature = hasFeature(featureKey, visitorCode);
   }, []);
 
   ...
@@ -534,7 +534,7 @@ class MyComponent extends React.Component {
       // Handle exception
     }
 
-    const feature = hasFeature(visitorCode, featureKey);
+    const feature = hasFeature(featureKey, visitorCode);
   }
 
   ...
@@ -1346,43 +1346,44 @@ export default compose(
 )(MyComponent);
 ```
 
-## Interest
-A callback function `addInterest()` adds interest.
+## Device
+A callback function `addDevice()` adds device.
 
-#### `addInterest`
+#### `addDevice`
 ##### Arguments
-- `index: number` - index of interest.
+- `device: DeviceType` - device type: Phone, Tablet, Desktop.
+    
 
 ##### Returns
-- An instance of `Interest: IInterest`.
+- An instance of `Device: IDevice`.
 
-### `useInterest`
+### `useDevice`
 #### Returns
-- A callback function `addInterest()`.
+- A callback function `addDevice()`.
 
 #### Example
 ```jsx
 import { useEffect } from 'react';
-import { useAddData, useInterest, useVisitorCode } from '@kameleoon/react-sdk';
+import { useAddData, useDevice, DeviceType, useVisitorCode } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
   const { addData } = useAddData();
   const { getVisitorCode } = useVisitorCode();
-  const { addInterest } = useInterest();
+  const { addDevice } = useDevice();
 
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addInterest(0)]);
+    addData(visitorCode, [addDevice(DeviceType.Desktop)]);
   }, []);
 
   ...
 }
 ```
 
-### `withInterest`
+### `withDevice`
 #### Arguments
-- `Component: React.Component` - component which will be enhanced with the prop `addInterest()`.
+- `Component: React.Component` - component which will be enhanced with the prop `addDevice()`.
 
 #### Returns
 - A wrapped component with additional props as described above.
@@ -1392,16 +1393,17 @@ function MyComponent(): JSX.Element {
 import {
   withVisitorCode,
   withAddData,
-  withInterest,
+  withDevice,
+  DeviceType,
   compose,
 } from '@kameleoon/react-sdk';
 
 class MyComponent extends React.Component {
   componentDidMount() {
-    const { addData, addInterest, getVisitorCode } = this.props;
+    const { addData, addDevice, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addInterest(0)]);
+    addData(visitorCode, [addDevice(DeviceType.Desktop)]);
   }
 
   ...
@@ -1409,7 +1411,7 @@ class MyComponent extends React.Component {
 
 export default compose(
   withAddData,
-  withInterest,
+  withDevice,
   withVisitorCode,
 )(MyComponent);
 ```
