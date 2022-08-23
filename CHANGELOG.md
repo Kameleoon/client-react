@@ -5,31 +5,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 4.0.1 (2022-08-23)
+
+
+### Bug fixes
+
+* remove internal changelog from gitignore 
+* useDevice hook description 
+
+### Refactor
+
+* fix cache 
+
 # 4.0.0 (2022-08-18)
+
 
 ### Features
 
 * swap feature arguments 
 * add device custom data 
 
-### Refactor
-
-* update documentation and gitlab script 
-
 # 3.0.0 (2022-07-01)
 
 
-### Bug fixes
-
-* unused `useError` hook in `useTriggerExperiment` according to code review 
-
-### Refactor
-
-* documentation and methods description according to code review 
-
 ### Features
-
-* improved error handling 
+ 
 * error handling 
 
 ### Breaking change
@@ -46,10 +46,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 # 2.0.0 (2022-02-24)
 
 
-### Refactor
-
-* add ci/cd automatic changelog and readme update for github and gitlab repository
-
 ### Features
 
 * add multi environment support 
@@ -65,21 +61,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * bundle source and internal changelog 
 
-### Refactor
-
-* makefile and release script fixes 
-* modify release script
-
 # 1.2.1 (2022-02-06)
 
 
 ### Bug fixes
 
-* decrease bundle size
-
-### Refactor
-
-* makefile and release script fixes
+* decrease bundle size 
 
 # 1.2.0 (2022-01-27)
 
