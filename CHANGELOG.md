@@ -5,17 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 4.0.2 (2022-09-02)
+
+
+### Bug fixes
+
+* max depth error 
+
+### Refactor
+
+* update documentation script 
+
 # 4.0.1 (2022-08-23)
 
 
 ### Bug fixes
 
-* remove internal changelog from gitignore 
 * useDevice hook description 
-
-### Refactor
-
-* fix cache 
 
 # 4.0.0 (2022-08-18)
 

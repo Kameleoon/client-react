@@ -820,7 +820,7 @@ _The `triggerExperiment()` and `trackConversion()` callback functions also sends
 #### `addData()`
 ##### Arguments
 - `visitorCode: string` - unique identifier of the user.
-- `dataTypes: DataInterface[]` - custom data types.
+- `dataTypes: DataInterface[]` - custom data types which may be passed separated by a comma.
 
 ### `useAddData`
 #### Returns
@@ -848,10 +848,10 @@ function MyComponent(): JSX.Element {
     const visitorCode = getVisitorCode('example.com');
 
     // Single data type passed
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
 
     // Several data types passed
-    addData(visitorCode, [addBrowser(Browser.Chrome), addCustomData(1, 'some custom value')]);
+    addData(visitorCode, addBrowser(Browser.Chrome), addCustomData(1, 'some custom value'));
   }, []);
 
   ...
@@ -882,13 +882,10 @@ class MyComponent extends React.Component {
     const visitorCode = getVisitorCode('example.com');
 
     // Single data type passed
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
 
     // Several data types passed
-    addData(visitorCode, [
-      addBrowser(Browser.Chrome),
-      addCustomData(1, 'some custom value'),
-    ]);   
+    addData(visitorCode, addBrowser(Browser.Chrome), addCustomData(1, 'some custom value'));   
   }
 
   ...
@@ -935,7 +932,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
     flush(visitorCode);
   }, []);
 
@@ -966,7 +963,7 @@ class MyComponent extends React.Component {
     const { addData, addBrowser, flush, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
     flush(visitorCode);
   }
 
@@ -1089,7 +1086,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
   }, []);
 
   ...
@@ -1118,7 +1115,7 @@ class MyComponent extends React.Component {
     const { addData, addBrowser, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addBrowser(Browser.Chrome)]);
+    addData(visitorCode, addBrowser(Browser.Chrome));
   }
 
   ...
@@ -1159,7 +1156,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addPageView('example.com', 'title', 3)]);
+    addData(visitorCode, addPageView('example.com', 'title', 3));
   }, []);
 
   ...
@@ -1190,7 +1187,7 @@ class MyComponent extends React.Component {
     const { addData, addPageView, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addPageView('example.com', 'title', 3)]);
+    addData(visitorCode, addPageView('example.com', 'title', 3));
   }
 
   ...
@@ -1232,7 +1229,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addConversion(32, 10, false)]);
+    addData(visitorCode, addConversion(32, 10, false));
   }, []);
 
   ...
@@ -1260,7 +1257,7 @@ class MyComponent extends React.Component {
     const { addData, addConversion, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addConversion(32, 10, false)]);
+    addData(visitorCode, addConversion(32, 10, false));
   }
 
   ...
@@ -1305,7 +1302,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addCustomData(1, 'some custom value')]);
+    addData(visitorCode, addCustomData(1, 'some custom value'));
   }, []);
 
   ...
@@ -1333,7 +1330,7 @@ class MyComponent extends React.Component {
     const { addData, addCustomData, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addCustomData(1, 'some custom value')]);
+    addData(visitorCode, addCustomData(1, 'some custom value'));
   }
 
   ...
@@ -1374,7 +1371,7 @@ function MyComponent(): JSX.Element {
   useEffect(() => {
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addDevice(DeviceType.Desktop)]);
+    addData(visitorCode, addDevice(DeviceType.Desktop));
   }, []);
 
   ...
@@ -1403,7 +1400,7 @@ class MyComponent extends React.Component {
     const { addData, addDevice, getVisitorCode } = this.props;
     const visitorCode = getVisitorCode('example.com');
 
-    addData(visitorCode, [addDevice(DeviceType.Desktop)]);
+    addData(visitorCode, addDevice(DeviceType.Desktop));
   }
 
   ...
