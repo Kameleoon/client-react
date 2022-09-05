@@ -5,6 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 4.0.3 (2022-09-05)
+
+
+### Bug fixes
+
+* rerender error 
+
 # 4.0.2 (2022-09-02)
 
 
