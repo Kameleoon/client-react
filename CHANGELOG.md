@@ -5,6 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 4.1.0 (2022-10-13)
+
+
+### Refactor
+
+* configure scripts 
+
+### Features
+
+* react native async storage 
+
 # 4.0.3 (2022-09-05)
 
 
@@ -18,10 +29,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug fixes
 
 * max depth error 
-
-### Refactor
-
-* update documentation script 
 
 # 4.0.1 (2022-08-23)
 

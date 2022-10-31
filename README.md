@@ -296,6 +296,8 @@ A callback function `getVisitorCode()` retrieves the Kameleoon `visitorCode` for
 
 For more information, refer to [this article](https://developers.kameleoon.com/back-front-bridge.html).
 
+There is also an alternative `getAsyncVisitorCode()` callback, which is asynchronous and is meant for *ReactNative* applications.
+
 ##### Please Note:
 _If you provide your own `visitorCode`, its uniqueness must be guaranteed on your end - the SDK cannot check it. Also note that the length of `visitorCode` is **limited to 255 characters**. Any excess characters will throw an exception._
 
@@ -353,6 +355,60 @@ class MyComponent extends React.Component {
 
     // With defaultVisitorCode argument
     const visitorCode = getVisitorCode('example.com', uuidv4());
+  }
+
+  ...
+}
+
+export default withVisitorCode(MyComponent);
+```
+
+### `useAsyncVisitorCode`
+#### Returns
+- A callback function `getAsyncVisitorCode()`.
+
+#### Example
+```jsx
+import { useState } from 'react';
+import { uuidv4 } from 'uuid';
+import { useAsyncVisitorCode } from '@kameleoon/react-sdk';
+
+function MyComponent(): JSX.Element {
+  const { getAsyncVisitorCode } = useAsyncVisitorCode();
+  const [visitorCode, setVisitorCode] = useState<string>('');
+
+  async function retrieveVisitorCode(): Promise<void> {
+    // Without defaultVisitorCode argument
+    const result = await getAsyncVisitorCode('example.com');
+    // With defaultVisitorCode argument
+    const result = await getAsyncVisitorCode('example.com', uuidv4());
+
+    setVisitorCode(result);
+  }
+  ...
+}
+```
+### `withAsyncVisitorCode`
+#### Arguments
+- `Component: React.Component` - component which will be enhanced with the prop `getAsyncVisitorCode()`.
+
+#### Returns
+- A wrapped component with additional props as described above.
+
+#### Example
+```jsx
+import { uuidv4 } from 'uuid';
+import { withAsyncVisitorCode } from '@kameleoon/react-sdk';
+
+class MyComponent extends React.Component {
+  async componentDidMount(): Promise<void> {
+    const { getAsyncVisitorCode } = this.props;
+
+    // Without defaultVisitorCode argument
+    const visitorCode = await getAsyncVisitorCode('example.com');
+
+    // With defaultVisitorCode argument
+    const visitorCode = await getAsyncVisitorCode('example.com', uuidv4());
   }
 
   ...
