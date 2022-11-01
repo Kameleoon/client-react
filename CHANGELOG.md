@@ -5,12 +5,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
-# 4.1.0 (2022-10-13)
+# 4.1.1 (2022-11-01)
 
+
+### Bug fixes
+
+* update tests 
 
 ### Refactor
 
-* configure scripts 
+* add tests for asyncVisitorCode 
+* react testing lib hooks 
+* configure react testing library 
+
+# 4.1.0 (2022-10-13)
+
 
 ### Features
 
