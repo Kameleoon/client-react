@@ -5,18 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 5.0.0 (2023-02-03)
+
+
+### Bug fixes
+
+* remove `xhr` in favour of `fetch`
+
+### Breaking change
+
+* visitor code is now mandatory for [hasFeature](https://developers.kameleoon.com/react-js-sdk.html#useactivatefeature) and [useFeature](https://developers.kameleoon.com/react-js-sdk.html#usefeature) 
+
 # 4.1.1 (2022-11-01)
 
 
 ### Bug fixes
 
-* update tests 
-
-### Refactor
-
-* add tests for asyncVisitorCode 
-* react testing lib hooks 
-* configure react testing library 
+* update tests
 
 # 4.1.0 (2022-10-13)
 
