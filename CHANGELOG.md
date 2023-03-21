@@ -1,27 +1,70 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
+
+# 6.0.0 (2023-03-21)
+
+
+### Features
+
+* Feature Flag v2 support
+* Improved stability
+
+### Breaking change
+
+- All `HOCs`,`Feature` render props, `compose` were removed
+- All data types hooks were removed: `useDevice`, `useConversion`, `useCustomData`, `usePageView`, `useBrowser`
+- Renamed hooks: 
+  - `useFlush` -> `useFlushData`
+  - `useActivateFeature` -> `useFeatureActive`
+  - `useVisitorCode` -> `useBrowserVisitorCode`
+  - `useAsyncVisitorCode` -> `useNativeVisitorCode`
+  - `useRetrieveDataFromRemoteSource` -> `useRemoteData`
+- Removed hooks:
+  - `useVariationAssociatedData` 
+  - `useRunWhenReady` 
+  - `useFeature`
+- Added hooks:
+  - `useInitialize`
+  - `useConfigurationUpdate`
+  - `useFeatureFlags`
+  - `useVisitorFeatureFlags`
+  - `useExperiments`
+  - `useVisitorExperiments`
+  - `useFeatureFlagVariationKey`
 
 # 5.0.0 (2023-02-03)
 
 
 ### Bug fixes
 
-* remove `xhr` in favour of `fetch`
+* remove xhr 
 
-### Breaking change
+### Refactor
 
-* visitor code is now mandatory for [hasFeature](https://developers.kameleoon.com/react-js-sdk.html#useactivatefeature) and [useFeature](https://developers.kameleoon.com/react-js-sdk.html#usefeature) 
+* refactor react sdk 
+
+### Features
+
+* get visitor code 
+* external event source 
+* external storage 
+* feature flags v2
 
 # 4.1.1 (2022-11-01)
 
 
 ### Bug fixes
 
-* update tests
+* update tests 
+
+### Refactor
+
+* add tests for asyncVisitorCode 
+* react testing lib hooks 
+* configure react testing library 
 
 # 4.1.0 (2022-10-13)
 
