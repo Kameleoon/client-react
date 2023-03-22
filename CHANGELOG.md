@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 6.1.0 (2023-03-22)
+
+
+### Features 
+
+- License changed from `GPL3.0` to `ISC`
+
 # 6.0.0 (2023-03-21)
 
 
