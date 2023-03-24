@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 6.1.1 (2023-03-24)
+
+
+### Bug fixes
+
+* change broken dependency 
+
 # 6.1.0 (2023-03-22)
 
 
@@ -12,7 +19,6 @@ All notable changes to this project will be documented in this file.
 - License changed from `GPL3.0` to `ISC`
 
 # 6.0.0 (2023-03-21)
-
 
 ### Features
 
@@ -44,34 +50,20 @@ All notable changes to this project will be documented in this file.
 
 # 5.0.0 (2023-02-03)
 
-
 ### Bug fixes
 
 * remove xhr 
 
-### Refactor
+### Breaking change
 
-* refactor react sdk 
-
-### Features
-
-* get visitor code 
-* external event source 
-* external storage 
-* feature flags v2
+* visitor code is now mandatory for hasFeature and useFeature
 
 # 4.1.1 (2022-11-01)
 
 
 ### Bug fixes
 
-* update tests 
-
-### Refactor
-
-* add tests for asyncVisitorCode 
-* react testing lib hooks 
-* configure react testing library 
+* update tests
 
 # 4.1.0 (2022-10-13)
 
