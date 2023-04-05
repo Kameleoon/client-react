@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 6.1.2 (2023-04-05)
+
+
+### Bug fixes
+
+* react sdk tests  
+
 # 6.1.1 (2023-03-24)
 
 
