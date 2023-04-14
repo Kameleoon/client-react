@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.0.0 (2023-04-14)
+
+### Breaking change
+
+* Error handling has changed, hook do not return `error` object anymore. See [details](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#error-handling)
+
+### Features
+
+* Added hook [`useExperimentVariationData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useexperimentvariationdata)
+* Targeting data cleanup interval is now [`optional`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#1-initializing-the-kameleoon-client) and not set by default
+* [`getFeatureFlagVariationKey`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#get-variation-key-for-a-certain-feature-flag), [`getFeatureFlagVariable`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#get-a-variable-of-a-certain-feature-flag), [`isFeatureFlagActive`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#check-if-the-feature-is-active-for-visitor) methods returned from according hooks do not check previously allocated variation, rather recalculate it each time. Same methods now send tracking request for any rule type (previously only for `Experementation` rule)
+
+
+### Bug fixes
+
+* `variationId` is undefined when using feature flag related methods
+
+
 # 6.1.3 (2023-04-05)
 
 

@@ -43,20 +43,26 @@ function MyComponentWrapper(): JSX.Element {
 import { useEffect } from 'react';
 import {
   useInitialize,
+  useAddData,
   getBrowserVisitorCode,
   useFeatureFlagActive,
+  CustomData,
 } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
   const { initialize } = useInitialize();
+  const { addData } = useAddData();
   const { getBrowserVisitorCode } = useBrowserVisitorCode();
   const { isFeatureFlagActive } = useFeatureFlagActive();
+  const visitorCode = getBrowserVisitorCode('www.example.com');
+  const customDataIndex = 0;
 
   async function waitForInitialize(): Promise<void> {
     const isReady = await initialize();
 
     if (isReady) {
-      const visitorCode = getBrowserVisitorCode('www.example.com');
+      // -- Add targeting data
+      addData(visitorCode, new CustomData(customDataIndex, 'my_data'));
 
       // -- Check if the feature is active for visitor
       const isMyFeatureActive = isFeatureFlagActive(
@@ -80,6 +86,7 @@ import {
   useBrowserVisitorCode,
   useTriggerExperiment,
   useFeatureFlagActive,
+  CustomData,
 } from '@kameleoon/react-sdk';
 
 function MyComponent(): JSX.Element {
