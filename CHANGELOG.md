@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.1.0 (2023-04-21)
+
+### Features
+
+* New hook [`useEngineTrackingCode`](#https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useenginetrackingcode)
+
+
 # 7.0.0 (2023-04-14)
 
 ### Breaking change
