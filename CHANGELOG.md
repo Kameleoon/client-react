@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* New hook [`useEngineTrackingCode`](#https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useenginetrackingcode)
+* New hook [`useEngineTrackingCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useenginetrackingcode)
 
 
 # 7.0.0 (2023-04-14)
