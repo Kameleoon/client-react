@@ -4,11 +4,21 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+
+
+# 7.1.1 (2023-04-22)
+
+
+### Bug fixes
+
+* core dependency fix 
+
 # 7.1.0 (2023-04-21)
+
 
 ### Features
 
-* New hook [`useEngineTrackingCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useenginetrackingcode)
+* New hook [`useEngineTrackingCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#sending-exposure-events-to-external-tools)
 
 
 # 7.0.0 (2023-04-14)
@@ -27,7 +37,6 @@ All notable changes to this project will be documented in this file.
 ### Bug fixes
 
 * `variationId` is undefined when using feature flag related methods
-
 
 # 6.1.3 (2023-04-05)
 
