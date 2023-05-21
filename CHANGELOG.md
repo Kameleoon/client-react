@@ -6,12 +6,20 @@ All notable changes to this project will be documented in this file.
 
 
 
+# 7.2.2 (2023-05-21)
+
+
+### Bug fixes
+
+* [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api) current visits not being up-to-date
+
 # 7.2.1 (2023-05-20)
 
 
 ### Bug fixes
 
 * [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api) data parse error
+
 
 # 7.2.0 (2023-05-19)
 
