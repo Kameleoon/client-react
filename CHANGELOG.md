@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
 
 
 
+# 7.2.4 (2023-06-01)
+
+
+### Bug fixes
+
+* Empty visitor code is no more allowed
+* Incorrect tracking body upon triggering an experiment
+
 # 7.2.3 (2023-05-24)
 
 
