@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 
 
 
+# 7.3.0 (2023-06-28)
+
+
+### Bug fixes
+
+- Improve error handling for [`getRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api)
+- Visitor code is now validated correctly in every method that uses it.
+- Result bundle is now compatible with systems not using `ESM` and `CommonJS`. It's minimized and uses code splitting for `crypto-js` `sha256` function.
+- Parameter `revenue` for [`Conversion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#conversion) is now optional.
+- Each visitor can now only have one type of associated [`Kameleoon Data Type`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#data-types), except for [`CustomData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/nodejs-sdk#customdata), that a visitor can have one per `customDataIndex`.
+
+### Features
+
+- New conditions are now supported: `Device`, `Browser`, `SDKLanguage`, `Page Title`, `Page View`, `Visitor Code`, `Conversion`. See the [full list of supported conditions](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#list-of-supported-targeting-conditions).
+- [`Browser`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#browser) now has new optional parameter `version`.
+- [`flushData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#flush-tracking-data) `visitorCode` parameter is now optional.
+- Custom data that is marked as `local only` on Kameleoon Platform is now only used for targeting (not flushed with tracking requests).
+
 # 7.2.4 (2023-06-01)
 
 
