@@ -6,6 +6,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+# 7.3.1 (2023-06-30)
+
+
+### Bug fixes
+
+* Tracking data duplication
+
 # 7.3.0 (2023-06-28)
 
 
