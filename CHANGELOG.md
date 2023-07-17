@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
 
+# 7.3.2 (2023-07-17)
+
+
+### Bug fixes
+
+- Added exports for following types:
+  - [`ExperimentType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useexperiments)
+  - [`FeatureFlagType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeatureflags)
+  - [`FeatureVariableResultType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable)
+  - [`KameleoonDataType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useremotevisitordata)
 
 # 7.3.1 (2023-06-30)
 
