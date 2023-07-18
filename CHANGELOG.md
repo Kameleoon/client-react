@@ -10,11 +10,19 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- Typescript `.d.ts` files have proper relative path resolution.
+- Unused tracking parameters are no longer sent.
+- Real-time update events now get the latest configuration.
 - Added exports for following types:
   - [`ExperimentType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useexperiments)
   - [`FeatureFlagType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeatureflags)
   - [`FeatureVariableResultType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable)
   - [`KameleoonDataType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useremotevisitordata)
+
+### Features
+
+- When the client is initialized in offline mode, in case of network issues failed tracking requests made by returned functions of [`useFlushData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflushdata), [`useTrackConversion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usetrackconversion), [`useTriggerExperiment`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usetriggerexperiment), [`useFeatureFlagVariationKey`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeatureflagvariationkey) or [`useFeatureVariable`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable) will be sent anew once the client is back online.
+- Minor optimization for checking [targeting conditions](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#list-of-supported-targeting-conditions) of a segment.
 
 # 7.3.1 (2023-06-30)
 
