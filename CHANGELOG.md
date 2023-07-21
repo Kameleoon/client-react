@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.4.0 (2023-07-21)
+
+
+### Bug fixes
+
+- Checks against unsupported conditions are now truthy.
+
+### Features
+
+- `useFlushData` has been deprecated in favor of [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush).
+- The function returned from [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush) sends failed tracking requests that were stored locally during the offline mode at first and then proceeds with the latest request.
 
 # 7.3.2 (2023-07-17)
 
