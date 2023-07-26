@@ -4,12 +4,16 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
-# 7.4.0 (2023-07-21)
+# 7.4.1 (2023-07-26)
 
 
 ### Bug fixes
 
-- Checks against unsupported conditions are now truthy.
+* The returned function of [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush) now sends offline tracking requests even if there's no new data to track.
+* Timestamps for offline requests are set correctly.
+
+# 7.4.0 (2023-07-21)
+
 
 ### Features
 
