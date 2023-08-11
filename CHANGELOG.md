@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.5.0 (2023-08-11)
+
+
+### Bug fixes
+
+* Empty Custom Data is now sending activity tracking event
+
+### Features
+
+* Added [Cross Device Custom Data Synchronization](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#cross-device-custom-data-synchronization) capabilities
+
 # 7.4.1 (2023-07-26)
 
 
