@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.5.1 (2023-08-25)
+
+
+### Bug fixes
+
+* Multiple `Real Time Update` connections are no longer created
+* `Custom Data Condition` now handles all exceptions properly
+
 # 7.5.0 (2023-08-11)
 
 
