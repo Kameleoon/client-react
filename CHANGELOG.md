@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.5.3 (2023-09-05)
+
+
+### Bug fixes
+
+* `UserAgent` was not exported from SDK
+
 # 7.5.2 (2023-08-31)
 
 
