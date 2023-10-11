@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.5.4 (2023-10-11)
+
+
+### Bug fixes
+
+* Storage data parse overhead optimization
+
 # 7.5.3 (2023-09-05)
 
 
