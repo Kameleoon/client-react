@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.6.0 (2023-10-20)
+
+
+### Features
+
+* Added new hook [`useVisitorWarehouseAudience`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usevisitorwarehousedata)
+
 # 7.5.4 (2023-10-11)
 
 
