@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 7.6.1 (2023-10-20)
+
+
+### Bug fixes
+
+* Fix previous version deploy issue
+
 # 7.6.0 (2023-10-20)
 
 
