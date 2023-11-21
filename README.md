@@ -26,7 +26,7 @@ This page describes the most basic configuration, for more in-depth review of al
 ```tsx
 import { createClient, KameleoonProvider } from '@kameleoon/react-sdk';
 
-const client = createClient('my_site_code');
+const client = createClient({ siteCode: 'my_site_code' });
 
 function MyComponentWrapper(): JSX.Element {
   return (
@@ -52,8 +52,10 @@ import {
 function MyComponent(): JSX.Element {
   const { initialize } = useInitialize();
   const { addData } = useAddData();
+  // -- Hook to generate new visitorCode. For React Native use `useNativeVisitorCode` hook
   const { getBrowserVisitorCode } = useBrowserVisitorCode();
   const { isFeatureFlagActive } = useFeatureFlagActive();
+
   const visitorCode = getBrowserVisitorCode('www.example.com');
   const customDataIndex = 0;
 
@@ -84,7 +86,6 @@ function MyComponent(): JSX.Element {
 import {
   useAddData,
   useBrowserVisitorCode,
-  useTriggerExperiment,
   useFeatureFlagActive,
   CustomData,
 } from '@kameleoon/react-sdk';
@@ -93,15 +94,10 @@ function MyComponent(): JSX.Element {
   const { addData } = useAddData();
   // -- Hook to generate new visitorCode. For React Native use `useNativeVisitorCode` hook
   const { getBrowserVisitorCode } = useBrowserVisitorCode();
-  const { triggerExperiment } = useTriggerExperiment();
   const { isFeatureFlagActive } = useFeatureFlagActive();
 
   const visitorCode = getBrowserVisitorCode('www.example.com');
-  const experimentId = 100;
   const customDataIndex = 0;
-
-  // -- Get variation id
-  const variationId = triggerExperiment('my_visitor_code', experimentId);
 
   // -- Add targeting data
   addData(visitorCode, new CustomData(customDataIndex, 'my_data'));
