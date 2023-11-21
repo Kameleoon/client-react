@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
-# 3.0.0 (2023-11-16)
+# 8.0.0 (2023-11-16)
 
 
 ### Breaking change
