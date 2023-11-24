@@ -11,6 +11,8 @@ This page describes the most basic configuration, for more in-depth review of al
 
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Using useReactVisitorCode and useReactNativeVisitorCode (Recommended)](#using-usereactvisitorcode-recommended)
+- [Legacy useBrowserVisitorCode and useNativeVisitorCode (Deprecated)](#legacy-usebrowservisitorcode-deprecated)
 
 ## Installation
 
@@ -37,14 +39,90 @@ function MyComponentWrapper(): JSX.Element {
 }
 ```
 
-3. Asynchronously initialize client to fetch the configuration from remote server and handle possible errors
+## Using useReactVisitorCode (Recommended)
+
+1. Asynchronously initialize client to fetch the configuration from remote server and handle possible errors
 
 ```tsx
 import { useEffect } from 'react';
 import {
   useInitialize,
   useAddData,
-  getBrowserVisitorCode,
+  useReactVisitorCode,
+  useFeatureFlagActive,
+  CustomData,
+} from '@kameleoon/react-sdk';
+
+function MyComponent(): JSX.Element {
+  const { initialize } = useInitialize();
+  const { addData } = useAddData();
+  // -- Hook to generate new visitorCode. For React Native use `useReactNativeVisitorCode` hook
+  const { getReactVisitorCode } = useReactVisitorCode();
+  const { isFeatureFlagActive } = useFeatureFlagActive();
+  const customDataIndex = 0;
+
+  async function waitForInitialize(): Promise<void> {
+    const isReady = await initialize();
+
+    if (isReady) {
+      const visitorCode = getReactVisitorCode();
+
+      // -- Add targeting data
+      addData(visitorCode, new CustomData(customDataIndex, 'my_data'));
+
+      // -- Check if the feature is active for visitor
+      const isMyFeatureActive = isFeatureFlagActive(
+        visitorCode,
+        'my_feature_key',
+      );
+    }
+  }
+
+  useEffect(() => {
+    waitForInitialize();
+  }, []);
+}
+```
+
+2. `hooks` are ready to use. Note: They can be used only inside `KameleoonProvider`
+
+```tsx
+import {
+  useAddData,
+  useReactVisitorCode,
+  useFeatureFlagActive,
+  CustomData,
+} from '@kameleoon/react-sdk';
+
+function MyComponent(): JSX.Element {
+  const { addData } = useAddData();
+  // -- Hook to generate new visitorCode. For React Native use `useReactNativeVisitorCode` hook
+  const { getReactVisitorCode } = useReactVisitorCode();
+  const { isFeatureFlagActive } = useFeatureFlagActive();
+
+  const visitorCode = getReactVisitorCode();
+  const customDataIndex = 0;
+
+  // -- Add targeting data
+  addData(visitorCode, new CustomData(customDataIndex, 'my_data'));
+
+  // -- Check if the feature is active for visitor
+  const isMyFeatureActive = isFeatureFlagActive(visitorCode, 'my_feature_key');
+}
+```
+
+## Legacy useBrowserVisitorCode (Deprecated)
+
+> **Note:** The `useBrowserVisitorCode` and `useNativeVisitorCode` hooks are deprecated. We recommend using `useReactVisitorCode` and `useReactNativeVisitorCode` for new implementations, as it correctly handles legal consent requirements.
+
+1. Asynchronously initialize client to fetch the configuration from remote server and handle possible errors
+
+```tsx
+import { useEffect } from 'react';
+import {
+  useInitialize,
+  useAddData,
+  useBrowserVisitorCode,
   useFeatureFlagActive,
   CustomData,
 } from '@kameleoon/react-sdk';
@@ -80,7 +158,7 @@ function MyComponent(): JSX.Element {
 }
 ```
 
-4. `hooks` are ready to use. Note: They can be used only inside `KameleoonProvider`
+2. `hooks` are ready to use. Note: They can be used only inside `KameleoonProvider`
 
 ```tsx
 import {

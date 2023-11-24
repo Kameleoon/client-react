@@ -4,12 +4,19 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.1.0 (2023-11-24)
+
+### Features
+
+* Added `useSetLegalConsent` hook to determine the types data Kameleoon includes in tracking requests. This helps you adhere to legal and regulatory requirements while responsibly managing visitor data. You can find more information in the [Consent management policy](https://help.kameleoon.com/consent-management-policy).
+* Migration to new CC end-point
+
 # 8.0.0 (2023-11-16)
 
 
 ### Breaking change
 
-* The following methods were removed:
+* SDK stopped the support of Web Experiments, the following hooks were removed:
   - `useExperiments`
   - `useVisitorExperiments`
   - `useTriggerExperiment`
