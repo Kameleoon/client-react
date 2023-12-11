@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.3.0 (2023-12-11)
+
+### Features
+
+- [flush](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush) and [trackConversion](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usetrackconversion) methods now have a new optional parameter `isUniqueIdentifier` used for extra [Kameleoon Cross-device Experimentation](https://developers.kameleoon.com/core-concepts/cross-device-experimentation) capabilities
+
+### Bug fixes
+
+- Targeting data cleanup caused `TypeError`
+
+### Refactor
+
+* Migration to Client Configuration API v2.0
+
 # 8.2.1 (2023-12-04)
 
 
@@ -41,7 +55,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* New hook with a method for retrieving multiple feature flag variables - [`useFeatureFlagVariables`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/nodejs-sdk#usefeatureflagvariables)
+* New hook with a method for retrieving multiple feature flag variables - [`useFeatureFlagVariables`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeatureflagvariables)
 * [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useremotevisitordata) callback is now capable of retrieving information from up to 25 visits along with some additional visit information configured by new `filters` field
 * [`PageView`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#pageview) data items are now stored by unique URL with timestamps of visits - each visitor can have several `PageView` URLs stored
 * [`Conversion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#conversion) data items are now stored as a list of conversion for each visitor
@@ -71,9 +85,7 @@ All notable changes to this project will be documented in this file.
 
 * `SDKParameters` type is now correctly exported from SDK
 * SDK Polling re-tries mechanism was optimized - SDK will now try to obtain configuration again during the next poll after 3 failed configuration loading attempts
-* |JS| [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk#onconfigurationupdate) callback now fires on successful configuration update in storage (previously fired after network configuration retrieval)
-* |NodeJS| [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/nodejs-sdk#onconfigurationupdate) callback now fires on successful configuration update in storage (previously fired after network configuration retrieval)
-* |React| [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useconfigurationupdate) callback now fires on successful configuration update in storage (previously fired after network configuration retrieval)
+* [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useconfigurationupdate) callback now fires on successful configuration update in storage (previously fired after network configuration retrieval)
 
 # 7.6.1 (2023-10-20)
 
@@ -180,7 +192,7 @@ All notable changes to this project will be documented in this file.
 - Visitor code is now validated correctly in every method that uses it.
 - Result bundle is now compatible with systems not using `ESM` and `CommonJS`. It's minimized and uses code splitting for `crypto-js` `sha256` function.
 - Parameter `revenue` for [`Conversion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#conversion) is now optional.
-- Each visitor can now only have one type of associated [`Kameleoon Data Type`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#data-types), except for [`CustomData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/nodejs-sdk#customdata), that a visitor can have one per `customDataIndex`.
+- Each visitor can now only have one type of associated [`Kameleoon Data Type`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#data-types), except for [`CustomData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#customdata), that a visitor can have one per `customDataIndex`.
 
 ### Features
 

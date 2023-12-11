@@ -113,7 +113,7 @@ function MyComponent(): JSX.Element {
 
 ## Legacy useBrowserVisitorCode (Deprecated)
 
-> **Note:** The `useBrowserVisitorCode` and `useNativeVisitorCode` hooks are deprecated. We recommend using `useReactVisitorCode` and `useReactNativeVisitorCode` for new implementations, as it correctly handles legal consent requirements.
+> **Note:** The `useBrowserVisitorCode` and `useNativeVisitorCode` hooks are deprecated and will be removed in a future release. Use [`useReactVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usereactvisitorcode) and [`useReactNativeVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usereactnativevisitorcode) instead.
 
 1. Asynchronously initialize client to fetch the configuration from remote server and handle possible errors
 
