@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.4.0 (2023-12-12)
+
+
+### Features
+
+* Updated the `getFeatureFlagVariable` function of [useFeatureVariable](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable) hook to return an object of type `FeatureFlagVariableType`
+* Enhanced the `getFeatureFlagVariables`function of [useFeatureVariables](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariables) hook to include the `key` field in its return value.
+
+### Bug fixes
+
+* Custom Data mapping identifier wasn't tracked correctly 
+
 # 8.3.0 (2023-12-11)
 
 ### Features
