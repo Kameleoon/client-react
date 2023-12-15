@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.4.1 (2023-12-15)
+
+
+### Bug fixes
+
+* Add nonce property for conversion data and set value on constructor call
+
 # 8.4.0 (2023-12-12)
 
 
