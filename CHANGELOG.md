@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.5.1 (2024-01-29)
+
+
+### Bug fixes
+
+* Context binding in [useSetLegalConsent](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#usesetlegalconsent) hook 
+
 # 8.5.0 (2024-01-18)
 
 
