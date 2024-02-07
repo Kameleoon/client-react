@@ -4,12 +4,19 @@ All notable changes to this project will be documented in this file.
 
 [Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
 
+# 8.5.2 (2024-02-07)
+
+
+### Bug fixes
+
+* Tracking wasn't sent if consent is required
+
 # 8.5.1 (2024-01-29)
 
 
 ### Bug fixes
 
-* Context binding in [useSetLegalConsent](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#usesetlegalconsent) hook 
+* Context binding in [useSetLegalConsent](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#usesetlegalconsent) hook
 
 # 8.5.0 (2024-01-18)
 
@@ -26,11 +33,13 @@ All notable changes to this project will be documented in this file.
 
 # 8.4.1 (2023-12-15)
 
+
 ### Bug fixes
 
-* Add nonce property for conversion data and set value on constructor call
+* Fix nonce for `Conversion` data
 
 # 8.4.0 (2023-12-12)
+
 
 ### Features
 
@@ -51,10 +60,6 @@ All notable changes to this project will be documented in this file.
 
 - Targeting data cleanup caused `TypeError`
 
-### Refactor
-
-* Migration to Client Configuration API v2.0
-
 # 8.2.1 (2023-12-04)
 
 ### Bug fixes
@@ -72,7 +77,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - Added `useSetLegalConsent` hook to determine the types data Kameleoon includes in tracking requests. This helps you adhere to legal and regulatory requirements while responsibly managing visitor data. You can find more information in the [Consent management policy](https://help.kameleoon.com/consent-management-policy).
-- Migration to new CC end-point
 
 # 8.0.0 (2023-11-16)
 
