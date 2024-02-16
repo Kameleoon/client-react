@@ -1,56 +1,71 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
+## 9.0.0 (2024-02-16)
 
-[Project Homepage](https://developers.kameleoon.com/react-js-sdk.html)
+### Breaking Changes
 
-# 8.5.2 (2024-02-07)
-
-
-### Bug fixes
-
-* Tracking wasn't sent if consent is required
-
-# 8.5.1 (2024-01-29)
-
-
-### Bug fixes
-
-* Context binding in [useSetLegalConsent](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#usesetlegalconsent) hook
-
-# 8.5.0 (2024-01-18)
-
-
-### Bug fixes
-
-* SDK threw an error reading storage when migrating from older SDK versions
-* React Native visitor code couldn't be read from storage in certain React Native versions
-* React SDK request headers caused CORS errors
+- `getReactVisitorCode` method and according hook were removed, instead use [`getVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getvisitorcode) method
+- `getReactNativeVisitorCode` method and according hook were removed, instead use [`getVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getvisitorcode) method
+- Previously deprecated `getBrowserVisitorCode` method and according hook were removed
+- Most hooks were merged and methods were grouped by hooks:
+  - `useAddData`/`useTrackConversion`/`useFlush`/`useRemoteData`/`useRemoteVisitorData`/`useWarehouseAudience` -> `useData` ,containing all methods from the listed hooks
+  - `useFeatureFlagActive`/`useFeatureFlags`/`useFeatureVariable`/`useFeatureVariables`/`useFeatureFlagVariationKey`/`useVisitorFeatureFlags`/`useEngineTrackingCode` -> `useFeatureFlag`, containing all methods from the listed hooks
+  - `useConfigurationUpdate` -> `useInitialize`, containing `onConfigurationUpdate` and `initialize` methods
+  - `useSetLegalConsent` -> `useVisitorCode`, containing `getVisitorCode` and `setLegalConsent` methods
+- React SDK for React Native now requires [providing external dependencies](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#react-native-considerations)
+- React SDK no more has React Native related packages in it's dependencies
 
 ### Features
 
-* Added new SDK `configuration` parameter [`requestTimeout`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk/#1-initializing-the-kameleoon-client), which defines maximum time in _milliseconds_ after which any SDK network request will fail
+- Added [External Dependencies](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#external-dependencies) capabilities
 
-# 8.4.1 (2023-12-15)
+### Patch Changes
 
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.0.0
+
+## 8.5.2 (2024-02-07)
 
 ### Bug fixes
 
-* Fix nonce for `Conversion` data
+- Tracking wasn't sent if consent is required
 
-# 8.4.0 (2023-12-12)
+## 8.5.1 (2024-01-29)
 
+### Bug fixes
+
+- Context binding in [useSetLegalConsent](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#usesetlegalconsent) hook
+
+## 8.5.0 (2024-01-18)
+
+### Bug fixes
+
+- SDK threw an error reading storage when migrating from older SDK versions
+- React Native visitor code couldn't be read from storage in certain React Native versions
+- React SDK request headers caused CORS errors
 
 ### Features
 
-* Updated the `getFeatureFlagVariable` function of [useFeatureVariable](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable) hook to return an object of type `FeatureFlagVariableType`
-* Enhanced the `getFeatureFlagVariables`function of [useFeatureVariables](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariables) hook to include the `key` field in its return value.
+- Added new SDK `configuration` parameter [`requestTimeout`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk/#1-initializing-the-kameleoon-client), which defines maximum time in _milliseconds_ after which any SDK network request will fail
+
+## 8.4.1 (2023-12-15)
 
 ### Bug fixes
 
-* Custom Data mapping identifier wasn't tracked correctly
+- Fix nonce for `Conversion` data
 
-# 8.3.0 (2023-12-11)
+## 8.4.0 (2023-12-12)
+
+### Features
+
+- Updated the `getFeatureFlagVariable` function of [useFeatureVariable](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable) hook to return an object of type `FeatureFlagVariableType`
+- Enhanced the `getFeatureFlagVariables`function of [useFeatureVariables](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariables) hook to include the `key` field in its return value.
+
+### Bug fixes
+
+- Custom Data mapping identifier wasn't tracked correctly
+
+## 8.3.0 (2023-12-11)
 
 ### Features
 
@@ -60,25 +75,25 @@ All notable changes to this project will be documented in this file.
 
 - Targeting data cleanup caused `TypeError`
 
-# 8.2.1 (2023-12-04)
+## 8.2.1 (2023-12-04)
 
 ### Bug fixes
 
 - Client cookie is now set properly
 
-# 8.2.0 (2023-11-30)
+## 8.2.0 (2023-11-30)
 
 ### Features
 
 - [CustomData session merging](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#using-custom-data-for-session-merging) abilities for [Kameleoon Cross-device Experimentation](https://developers.kameleoon.com/core-concepts/cross-device-experimentation)
 
-# 8.1.0 (2023-11-24)
+## 8.1.0 (2023-11-24)
 
 ### Features
 
 - Added `useSetLegalConsent` hook to determine the types data Kameleoon includes in tracking requests. This helps you adhere to legal and regulatory requirements while responsibly managing visitor data. You can find more information in the [Consent management policy](https://help.kameleoon.com/consent-management-policy).
 
-# 8.0.0 (2023-11-16)
+## 8.0.0 (2023-11-16)
 
 ### Breaking change
 
@@ -123,44 +138,44 @@ All notable changes to this project will be documented in this file.
 - SDK Polling re-tries mechanism was optimized - SDK will now try to obtain configuration again during the next poll after 3 failed configuration loading attempts
 - [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useconfigurationupdate) callback now fires on successful configuration update in storage (previously fired after network configuration retrieval)
 
-# 7.6.1 (2023-10-20)
+## 7.6.1 (2023-10-20)
 
 ### Bug fixes
 
 - Fix previous version deploy issue
 
-# 7.6.0 (2023-10-20)
+## 7.6.0 (2023-10-20)
 
 ### Features
 
 - Added new hook [`useVisitorWarehouseAudience`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usevisitorwarehousedata)
 
-# 7.5.4 (2023-10-11)
+## 7.5.4 (2023-10-11)
 
 ### Bug fixes
 
 - Storage data parse overhead optimization
 
-# 7.5.3 (2023-09-05)
+## 7.5.3 (2023-09-05)
 
 ### Bug fixes
 
 - `UserAgent` was not exported from SDK
 
-# 7.5.2 (2023-08-31)
+## 7.5.2 (2023-08-31)
 
 ### Bug fixes
 
 - `Custom Data Condition` now handles index `0` properly
 
-# 7.5.1 (2023-08-25)
+## 7.5.1 (2023-08-25)
 
 ### Bug fixes
 
 - Multiple `Real Time Update` connections are no longer created
 - `Custom Data Condition` now handles all exceptions properly
 
-# 7.5.0 (2023-08-11)
+## 7.5.0 (2023-08-11)
 
 ### Bug fixes
 
@@ -170,21 +185,21 @@ All notable changes to this project will be documented in this file.
 
 - Added [Cross Device Custom Data Synchronization](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#cross-device-custom-data-synchronization) capabilities
 
-# 7.4.1 (2023-07-26)
+## 7.4.1 (2023-07-26)
 
 ### Bug fixes
 
 - The returned function of [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush) now sends offline tracking requests even if there's no new data to track.
 - Timestamps for offline requests are set correctly.
 
-# 7.4.0 (2023-07-21)
+## 7.4.0 (2023-07-21)
 
 ### Features
 
 - `useFlushData` has been deprecated in favor of [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush).
 - The function returned from [`useFlush`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflush) sends failed tracking requests that were stored locally during the offline mode at first and then proceeds with the latest request.
 
-# 7.3.2 (2023-07-17)
+## 7.3.2 (2023-07-17)
 
 ### Bug fixes
 
@@ -202,13 +217,13 @@ All notable changes to this project will be documented in this file.
 - When the client is initialized in offline mode, in case of network issues failed tracking requests made by returned functions of [`useFlushData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#useflushdata), [`useTrackConversion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usetrackconversion), [`useTriggerExperiment`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usetriggerexperiment), [`useFeatureFlagVariationKey`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeatureflagvariationkey) or [`useFeatureVariable`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#usefeaturevariable) will be sent anew once the client is back online.
 - Minor optimization for checking [targeting conditions](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#list-of-supported-targeting-conditions) of a segment.
 
-# 7.3.1 (2023-06-30)
+## 7.3.1 (2023-06-30)
 
 ### Bug fixes
 
 - Tracking data duplication
 
-# 7.3.0 (2023-06-28)
+## 7.3.0 (2023-06-28)
 
 ### Bug fixes
 
@@ -225,57 +240,57 @@ All notable changes to this project will be documented in this file.
 - [`flushData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#flush-tracking-data) `visitorCode` parameter is now optional.
 - Custom data that is marked as `local only` on Kameleoon Platform is now only used for targeting (not flushed with tracking requests).
 
-# 7.2.4 (2023-06-01)
+## 7.2.4 (2023-06-01)
 
 ### Bug fixes
 
 - Empty visitor code is no more allowed
 - Incorrect tracking body upon triggering an experiment
 
-# 7.2.3 (2023-05-24)
+## 7.2.3 (2023-05-24)
 
 ### Bug fixes
 
 - Fixed issue for sending unique `Nonce` parameter on tracking requests
 
-# 7.2.2 (2023-05-21)
+## 7.2.2 (2023-05-21)
 
 ### Bug fixes
 
 - [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api) current visits not being up-to-date
 
-# 7.2.1 (2023-05-20)
+## 7.2.1 (2023-05-20)
 
 ### Bug fixes
 
 - [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api) data parse error
 
-# 7.2.0 (2023-05-19)
+## 7.2.0 (2023-05-19)
 
 ### Features
 
 - New hook [`useRemoteVisitorData`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#obtain-custom-data-from-kameleoon-data-api)
 - New offline mode for [`useInitialize`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#initialize-kameleoon-client) method
 
-# 7.1.2 (2023-04-24)
+## 7.1.2 (2023-04-24)
 
 ### Bug fixes
 
 - Tracking feature flag rule with variation `off` wasn't displayed on result page
 
-# 7.1.1 (2023-04-22)
+## 7.1.1 (2023-04-22)
 
 ### Bug fixes
 
 - core dependency fix
 
-# 7.1.0 (2023-04-21)
+## 7.1.0 (2023-04-21)
 
 ### Features
 
 - New hook [`useEngineTrackingCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#sending-exposure-events-to-external-tools)
 
-# 7.0.0 (2023-04-14)
+## 7.0.0 (2023-04-14)
 
 ### Breaking change
 
@@ -291,31 +306,31 @@ All notable changes to this project will be documented in this file.
 
 - `variationId` is undefined when using feature flag related methods
 
-# 6.1.3 (2023-04-05)
+## 6.1.3 (2023-04-05)
 
 ### Bug fixes
 
 - export missing hooks
 
-# 6.1.2 (2023-04-05)
+## 6.1.2 (2023-04-05)
 
 ### Bug fixes
 
 - react sdk tests
 
-# 6.1.1 (2023-03-24)
+## 6.1.1 (2023-03-24)
 
 ### Bug fixes
 
 - change broken dependency
 
-# 6.1.0 (2023-03-22)
+## 6.1.0 (2023-03-22)
 
 ### Features
 
 - License changed from `GPL3.0` to `ISC`
 
-# 6.0.0 (2023-03-21)
+## 6.0.0 (2023-03-21)
 
 ### Features
 
@@ -345,7 +360,7 @@ All notable changes to this project will be documented in this file.
   - `useVisitorExperiments`
   - `useFeatureFlagVariationKey`
 
-# 5.0.0 (2023-02-03)
+## 5.0.0 (2023-02-03)
 
 ### Bug fixes
 
@@ -355,44 +370,44 @@ All notable changes to this project will be documented in this file.
 
 - visitor code is now mandatory for hasFeature and useFeature
 
-# 4.1.1 (2022-11-01)
+## 4.1.1 (2022-11-01)
 
 ### Bug fixes
 
 - update tests
 
-# 4.1.0 (2022-10-13)
+## 4.1.0 (2022-10-13)
 
 ### Features
 
 - react native async storage
 
-# 4.0.3 (2022-09-05)
+## 4.0.3 (2022-09-05)
 
 ### Bug fixes
 
 - rerender error
 
-# 4.0.2 (2022-09-02)
+## 4.0.2 (2022-09-02)
 
 ### Bug fixes
 
 - max depth error
 
-# 4.0.1 (2022-08-23)
+## 4.0.1 (2022-08-23)
 
 ### Bug fixes
 
 - useDevice hook description
 
-# 4.0.0 (2022-08-18)
+## 4.0.0 (2022-08-18)
 
 ### Features
 
 - swap feature arguments
 - add device custom data
 
-# 3.0.0 (2022-07-01)
+## 3.0.0 (2022-07-01)
 
 ### Features
 
@@ -402,13 +417,13 @@ All notable changes to this project will be documented in this file.
 
 - `useFeature` hook and `withFeature` high-order component can no longer be used the same way
 
-# 2.1.0 (2022-04-18)
+## 2.1.0 (2022-04-18)
 
 ### Features
 
 - retrieve data from remote source
 
-# 2.0.0 (2022-02-24)
+## 2.0.0 (2022-02-24)
 
 ### Features
 
@@ -418,31 +433,31 @@ All notable changes to this project will be documented in this file.
 
 - variableKeys became an object and no longer can be used as an array or a string
 
-# 1.2.2 (2022-02-06)
+## 1.2.2 (2022-02-06)
 
 ### Bug fixes
 
 - bundle source and internal changelog
 
-# 1.2.1 (2022-02-06)
+## 1.2.1 (2022-02-06)
 
 ### Bug fixes
 
 - decrease bundle size
 
-# 1.2.0 (2022-01-27)
+## 1.2.0 (2022-01-27)
 
 ### Bug Fixes
 
 - linting issues
 
-# 1.1.0 (2022-01-26)
+## 1.1.0 (2022-01-26)
 
 ### Bug Fixes
 
 - package json
 
-# 1.0.0 (2022-01-20)
+## 1.0.0 (2022-01-20)
 
 ### Bug Fixes
 
