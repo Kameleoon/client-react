@@ -1,5 +1,12 @@
 # Change Log
 
+## 9.0.1 (2024-02-21)
+
+### Patch Changes
+
+- `<KameleoonProvider />` React dependency is now properly used
+- Convert dependency on [JavaScript SDK](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk/) from peer to concrete
+
 ## 9.0.0 (2024-02-16)
 
 ### Breaking Changes
