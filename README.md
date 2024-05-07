@@ -77,7 +77,3 @@ function MyComponent(): JSX.Element {
   }, []);
 }
 ```
-## React Native IOS Privacy Manifest
-
-Following new Apple's privacy policy you can reference SDK's `PrivacyInfo.xcprivacy` file to update
-your application's privacy manifest. 
