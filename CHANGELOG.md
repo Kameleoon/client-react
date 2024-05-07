@@ -4,7 +4,7 @@
 
 ### Features
 
-- New method [`getActiveFeatureFlags`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/reactjs-sdk/#getactivefeatureflags) obtained with `useFeature` hook, which retrieves feature flags that are active for visitor with detailed variation and variables information.
+- New method [`getActiveFeatureFlags`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#getactivefeatureflags) obtained with `useFeature` hook, which retrieves feature flags that are active for visitor with detailed variation and variables information.
 
 ### Patch Changes
 
