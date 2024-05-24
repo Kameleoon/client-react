@@ -1,5 +1,18 @@
 # Change Log
 
+## 9.3.0 (2024-05-24)
+
+### Features
+
+- Added new [`onEvent`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#onevent) method retuned from `useInitialize` hook to handle SDK events with a callback.
+- Method [`onConfigurationUpdate`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#onConfigurationUpdate) is now marked as `deprecated` and will be removed in the next major release. Use [`onEvent(EventType.ConfigurationUpdate, callback)`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk/#onevent) instead.
+- Added support of range match type for numeric Custom Data values.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.3.0
+
 ## 9.2.0 (2024-05-07)
 
 ### Features
