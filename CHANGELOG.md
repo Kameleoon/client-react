@@ -1,5 +1,22 @@
 # Change Log
 
+## 9.4.0 (2024-06-21)
+
+### Features
+
+- Added new [`networkDomain`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#1-create-kameleoon-client) parameter in `SDKConfigurationType` for configuring custom network domain for all outgoing requests.
+- [`SDKConfigurationType`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#1-create-kameleoon-client) parameter `domain` was deprecated and will be removed in the next major version. Instead new `cookieDomain` is available.
+- Consent value can now be read automatically from the JS Script if the visitor code is set in cookie.
+- Add new optional [External Dependency](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#external-dependencies) - [Requester](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#requester) for implementing custom network request handler
+- Added new `KameleoonUtils` methods:
+  - [`getCookieValue`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getcookievalue) for extracting cookie value from cookie string
+  - [`simulateSuccessRequest`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#simulatesuccessrequest) for mocking successful network requests when implementing custom `Requester`
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.0
+
 ## 9.3.0 (2024-05-24)
 
 ### Features
