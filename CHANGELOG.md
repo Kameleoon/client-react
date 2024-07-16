@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.4.2 (2024-07-16)
+
+### Patch Changes
+
+- [`getVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getvisitorcode) now sets the visitor code to cookie correctly, when the visitor code was initially retrieved from it
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.2
+
 ## 9.4.1 (2024-07-12)
 
 ### Patch Changes
