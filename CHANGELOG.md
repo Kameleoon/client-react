@@ -1,5 +1,17 @@
 # Change Log
 
+## 9.5.0 (2024-07-19)
+
+### Features
+
+- Added new external dependency [`Pseudo Random Number Generator`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#pseudo-random-number-generator)
+
+### Patch Changes
+
+- Fixed the issue where `useCache` parameter of [`initialize`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#initialize) wasn't displayed in the method parameters type
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.3
+
 ## 9.4.2 (2024-07-16)
 
 ### Patch Changes
