@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.5.1 (2024-07-19)
+
+### Patch Changes
+
+- Fix previous release, which didn't contain all the described changes
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.4
+
 ## 9.5.0 (2024-07-19)
 
 ### Features
