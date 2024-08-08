@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.5.2 (2024-08-08)
+
+### Patch Changes
+
+- Fixed an issue that caused duplicate entries in feature flag results for both anonymous and authorized/identified visitors during data reconciliation. This problem occurred when custom data of type mapping ID was not consistently sent for all sessions.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.5
+
 ## 9.5.1 (2024-07-19)
 
 ### Patch Changes
