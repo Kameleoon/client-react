@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.5.3 (2024-08-15)
+
+### Patch Changes
+
+- Fixed the issue with mapping identifier Custom Data not being set correctly after browser tab reload
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.6
+
 ## 9.5.2 (2024-08-08)
 
 ### Patch Changes
