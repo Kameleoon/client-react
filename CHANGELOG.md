@@ -1,5 +1,13 @@
 # Change Log
 
+## 9.5.4 (2024-08-30)
+
+### Patch Changes
+
+- Fixed the issue - some feature experiment conditions could resolve to incorrect values on interval configuration update
+- Updated dependencies
+  - @kameleoon/javascript-sdk@3.4.7
+
 ## 9.5.3 (2024-08-15)
 
 ### Patch Changes
