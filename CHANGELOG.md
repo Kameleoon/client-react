@@ -1,5 +1,39 @@
 # Change Log
 
+## 10.0.0 (2024-10-03)
+
+### Breaking Changes
+
+- `isUniqueIdentifier` parameter has been removed from methods [`flush`][flush], [`getRemoteVisitorData`][getremotevisitordata] and [`trackConversion`][trackconversion]
+- Method [`initialize`][initialize] no more accepts `useCache` boolean parameter. Using storage cached client configuration on failed configuration request is now default behavior.
+- Previously deprecated method [`onConfigurationUpdate`][onconfigurationupdate] has been removed from SDKs. Use [`onEvent`][onevent] method with `EventType.ConfigurationUpdate` to achieve the same effect.
+- Previously deprecated field [`domain`][domain] of `SDKConfiguration` has been removed from SDKs. Use [`cookieDomain`][domain] field of `SDKConfiguration` instead.
+- Parameter `text` of `KameleoonResponseType` used in custom [`requester`][requester] implementation is now mandatory, for the vast majority of implementations like `fetch`, `axios` or `node-fetch` it won't require any changes.
+
+### Features
+
+- `FeatureVariableType` returned from the methods obtaining feature flag variables can now have two new `VariableType`s - `VariableType.JS` containing a `string` of JavaScript code and `VariableType.CSS` containing a string with CSS code
+- Added new [`UniqueIdentifier`][uniqueidentifier] data to be used instead of removed `isUniqueIdentifier` parameters in some methods
+- Added new [`SDKConfiguration`][sdkconfiguration] parameter `trackingInterval` to set the interval between SDK tracking network requests in _milliseconds_, default value is `1000`, which is also maximum interval, minimum value is `100`
+
+### Patch Changes
+
+- [`getEngineTrackingCode`][getenginetrackingcode] method now correctly sets `triggerExperiment` parameter based on variable types
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.0.0
+
+[uniqueidentifier]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#uniqueidentifier
+[sdkconfiguration]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#arguments
+[flush]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#flush
+[getremotevisitordata]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getremotevisitordata
+[trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#trackconversion
+[getenginetrackingcode]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getenginetrackingcode
+[onconfigurationupdate]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#onconfigurationupdate
+[onevent]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#onevent
+[domain]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#configuration-parameters
+[requester]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#requester
+[initialize]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#initialize
+
 ## 9.5.4 (2024-08-30)
 
 ### Patch Changes
