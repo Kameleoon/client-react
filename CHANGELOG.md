@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.1.3
+
+### Patch Changes
+
+- Fixed the issue with `off` variation not being added to `getEngineTrackingCode` result
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.1.3
+
 ## 10.1.2 (2024-12-05)
 
 ### Patch Changes
