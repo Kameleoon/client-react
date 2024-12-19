@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.2.2 (2024-12-19)
+
+### Patch Changes
+
+- Introduced human-friendly timestamps in the default logger to improve traceability and debugging.
+- Resolved an issue where the SDK could crash in certain scenarios when an error occurred during a request.
+- Improved the consistency of logs for requests by updating similar messages and ensuring accurate display of both responses and errors.
+- Implemented logging for EventSource status updates (connection, disconnection, and errors).
+- Addressed a browser-related issue where, if consent was required or no consent was provided (no targeting delivery rules), newly generated visitor codes were stored in cookies after page reloads.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.2.2
+
 ## 10.2.1 (2024-12-10)
 
 ### Patch Changes
