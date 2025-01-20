@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.4.0 (2025-01-17)
+
+### Features
+
+- Added support for specifying a custom `Environment` value as a string in the [configuration parameters][configurationParameters], alongside the standard options.
+
+[configurationParameters]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#configuration-parameters
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.4.0
+
 ## 10.3.0 (2025-01-17)
 
 ### Features
