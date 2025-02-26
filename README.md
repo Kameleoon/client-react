@@ -39,6 +39,24 @@ function MyComponentWrapper(): JSX.Element {
 }
 ```
 
+If used in Next.js for server-side rendering, you can set stubMode to disable SDK client initialization on the server.
+
+```tsx
+import { KameleoonProvider, createClient } from '@kameleoon/react-sdk';
+
+const isServer = typeof window === 'undefined';
+
+const client = createClient({ siteCode: 'my_site_code', stubMode: isServer });
+
+function MyComponentWrapper(): JSX.Element {
+  return (
+    <KameleoonProvider client={client}>
+      <MyComponent />
+    </KameleoonProvider>
+  );
+}
+```
+
 ## Usage Example
 
 ```tsx

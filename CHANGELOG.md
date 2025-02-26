@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.6.0 (2025-02-26)
+
+### Features
+
+- Added new parameter `stubMode` to `SDKParameters` for create `KameleoonClient`. This parameter enables a no-operation mode for the client, which is particularly useful for disabling external interactions in controlled environments.
+- Added SDK support for **Mutually Exclusive Groups**. When feature flags are grouped into a **Mutually Exclusive Group**, only one flag in the group will be evaluated at a time. All other flags in the group will automatically return their default variation.
+
+### Patch Changes
+
+- Fixed validation for the [`networkDomain`][configurationParameters] parameter.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.6.0
+
 ## 10.5.0 (2025-02-10)
 
 ### Features
