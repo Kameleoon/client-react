@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.6.1 (2025-03-05)
+
+### Patch Changes
+
+- Resolved all circular dependencies to improve stability.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.6.1
+
 ## 10.6.0 (2025-02-26)
 
 ### Features
