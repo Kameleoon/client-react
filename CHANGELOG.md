@@ -1,5 +1,16 @@
 # Change Log
 
+## 10.7.0 (2025-03-12)
+
+### Features
+
+- Reduced the number of technical requests to Data API servers to enhance performance and minimize the risk of [Too Many Requests](https://developers.kameleoon.com/apis/data-api-rest/all-endpoints/post-visit-events/) errors
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.7.0
+
 ## 10.6.1 (2025-03-05)
 
 ### Patch Changes
