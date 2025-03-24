@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.9.0 (2025-03-24)
+
+### Features
+
+- Added new optional parameters `negative` and `metadata` to the [`trackConversion`](trackConversion) method.
+- Added new optional parameter `metadata` to the [`Conversion`](Conversion) data constructor.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.9.0
+
+[trackConversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-sdk#trackconversion
+[Conversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-sdk#conversion
+
 ## 10.8.0 (2025-03-18)
 
 ### Features
