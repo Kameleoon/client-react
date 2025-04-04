@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.10.0 (2025-04-04)
+
+### Features
+
+- We've introduced a new [`KameleoonProviderSSR`](KameleoonProviderSSR), which is now the **recommended way** to use React with any server-side rendering (SSR) framework.
+ Instead of requiring a manually created [`KameleoonClient`](createClient), this new provider accepts [`SDKParameters`](SDKParameters) and **automatically creates** a `KameleoonClient` instance upon first use.
+ To avoid unexpected issues, make sure that all calls to `KameleoonClient` methods happen inside a `useEffect` (or an equivalent hook) — check our code examples for guidance.
+ We strongly recommend migrating to this new provider to ensure compatibility with both Next.js routing systems: the **Pages Router** and the **App Router**.
+
+[KameleoonProviderSSR]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#kameleoonproviderssr
+[createClient]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#create-the-kameleoon-client
+[SDKParameters]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/js-sdk#initialize-the-kameleoon-client
+
 ## 10.9.0 (2025-03-24)
 
 ### Features
