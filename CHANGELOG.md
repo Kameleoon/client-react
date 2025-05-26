@@ -1,5 +1,28 @@
 # Change Log
 
+## 10.11.0 (2025-05-26)
+
+### Features
+
+- Added automatic detection of the [`PageView`](pageView), [`Browser`](browser), [`Device`](device) and [`OperatingSystem`](operatingSystem) types for targeting and reporting purposes. However, it can still be manually overridden using the [`addData`](addData) method.
+- Added support for a **New**/**Returning** visitor breakdown filter in reports.
+- Refactored targeting condition logic (remote data requests are now optional) for:
+  - Time elapsed since first/last visit
+  - New or returning visitors
+  - Total number of visits
+  - Number of visits today
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.10.0
+
+[device]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#device
+[pageView]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#pageview
+[browser]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#browser
+[operatingSystem]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#operatingsystem
+[addData]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#adddata
+
 ## 10.10.2 (2025-05-15)
 
 ### Patch Changes
