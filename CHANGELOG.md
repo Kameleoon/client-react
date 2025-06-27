@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.12.0 (2025-06-27)
+
+### Features
+
+- Added support for using a Custom Data value for traffic bucketing instead of the default visitor code. [Learn More](https://help.kameleoon.com/create-feature-flag/#Advanced_Flag_Settings).
+- Added support for **304 (Not Modified)** responses from the SDK config service to avoid redundant updates and reduce traffic when the configuration hasn't changed.
+- Added new optional parameter `instant` to the [`flush`][flush] method, allowing data to be sent to the server immediately without waiting for the next scheduled flush cycle.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.11.0
+
 ## 10.11.1 (2025-06-26)
 
 ### Patch Changes
