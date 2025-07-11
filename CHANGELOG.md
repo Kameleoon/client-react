@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.13.1 (2025-07-11)
+
+### Patch Changes
+
+- Stability and performance improvements
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.12.1
+
 ## 10.13.0 (2025-07-10)
 
 ### Features
