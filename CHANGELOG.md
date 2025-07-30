@@ -1,15 +1,27 @@
 # Change Log
 
-## 10.15.0 (2025-07-24)
+## 10.15.1 (2025-07-30)
 
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+### Patch Changes
+
+- Improved error logging when parsing [`defaultDataFile`](defaultDataFile) - now provides more informative messages for easier debugging.
+- Optimized tree-shaking to reduce bundle size by eliminating unused code.
+- Removed Node.js crypto dependency from the browser bundle to prevent build-time errors.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.14.1
+
+[defaultDataFile]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#configuration-parameters
+
+## 10.15.0 (2025-07-24)
 
 ### Features
 
-- Migrated the NPM package's build system from Babel (which generated multiple minified JS files) to Rollup, producing optimized bundles.
-  - Reduced package size by 44% through file consolidation and improved tree-shaking.
-  - Added native ESM support using Rollup's modern output format for better compatibility with contemporary bundlers.
+- Migrated the build system for the NPM package from Babel (which previously generated multiple minified JS files) to Rollup, producing a single, optimized bundle.
+  - Significantly reduced package size by consolidating files and improving tree-shaking.
+  - Added native ESM support via modern Rollup outputs for better compatibility with modern bundlers.
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Patch Changes
 
