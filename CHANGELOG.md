@@ -1,5 +1,15 @@
 # Change Log
 
+## 10.15.2 (2025-08-01)
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk-core@5.14.2
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
 ## 10.15.1 (2025-07-30)
 
 ### Patch Changes
@@ -9,6 +19,9 @@
 - Removed Node.js crypto dependency from the browser bundle to prevent build-time errors.
 - Updated dependencies
   - @kameleoon/javascript-sdk@4.14.1
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 [defaultDataFile]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#configuration-parameters
 
