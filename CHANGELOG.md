@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.16.0 (2025-08-04)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
+### Features
+
+- Added peer dependency support for React 19.
+
+### Patch Changes
+
+- Fixed the missing **SDK version** parameter in the bundle, which caused incorrect tracking URLs and prevented proper evaluation of the [SDK Language](https://help.kameleoon.com/target-groups-of-users-with-rules) condition.
+
 ## 10.15.2 (2025-08-01)
 
 > [!WARNING]
@@ -42,6 +55,9 @@
   - @kameleoon/javascript-sdk@4.14.0
 
 ## 10.14.0 (2025-07-23)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
