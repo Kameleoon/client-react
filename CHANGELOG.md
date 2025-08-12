@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.16.1 (2025-08-12)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
+### Patch Changes
+
+- Fixed an issue where [`Cookie`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#cookie) would throw an exception when parsing from a string if the cookie value was empty.
+- Removed the [React Native](https://reactnative.dev/) dependency from the browser bundle to avoid build-time warnings and errors.
+- Fixed the automatic detection of [`Device`](device) and [`OperatingSystem`](operatingSystem) types in React Native. The previous implementation could cause build-time warnings and errors. To enable this feature, use the external package [`@kameleoon/react-native-platform-analyzer`](https://developers.kameleoon.com/feature-management-and-experimentation/mobile-sdks/react-native-sdk#react-native-considerations).
+- Corrected automatic detection of the [`Browser`](browser) version to parse versions as floats instead of integers.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.14.3
+
 ## 10.16.0 (2025-08-04)
 
 > [!WARNING]
