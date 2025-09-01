@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.17.0 (2025-09-01)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
+### Features
+
+- Added an `overwrite` flag to [`CustomData`](CustomData), used as the `overwrite` parameter during tracking.
+- [`CustomData`](CustomData) can now be created using a `name`, in addition to the existing method of using an `index`.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.15.0
+
 ## 10.16.3 (2025-08-20)
 
 > [!WARNING]
