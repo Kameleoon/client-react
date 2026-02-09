@@ -1,5 +1,16 @@
 # Change Log
 
+## 10.19.2 (2026-02-09)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
+### Patch Changes
+
+- Stability and performance improvements
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.17.3
+
 ## 10.19.2 (2026-01-26)
 
 > [!WARNING]
