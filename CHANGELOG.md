@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.20.0 (2026-02-13)
+
+### Features
+
+- Updated the allowed range for the [`trackingInterval`][configurationParameters]. The new range is from **`1000` ms** (default) to **`5000` ms**, allowing a reduction in the number of tracking requests.
+- Introduced a new `track` parameter for [`addData`][addData]. When set to `false`, the data is stored locally and used only for targeting evaluation; it is not sent to the Data API, helping to prevent duplicate data from being recorded. The default value is `true`. This behavior is consistent with the `track` parameter used in evaluation methods such as [`getVariation`][getVariation].
+
+[configurationParameters](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk/#configuration-parameters)
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.18.0
+
 ## 10.19.2 (2026-02-09)
 
 > [!WARNING]
