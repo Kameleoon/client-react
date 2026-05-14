@@ -1,6 +1,24 @@
 # Change Log
 
+## 10.26.0 (2026-05-13)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.26.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
+### Features
+
+- Removed [`INFO`][logging] and [`DEBUG`][logging] log messages from the standard bundles to significantly reduce the default JavaScript SDK bundle size.
+- Added `/full` package exports for customers who require verbose SDK logging. Use `@kameleoon/react-sdk/full` when enabling logging with `KameleoonLogger.setLogLevel(LogLevel.INFO)` or `KameleoonLogger.setLogLevel(LogLevel.DEBUG)`.
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.24.0
+
 ## 10.25.0 (2026-05-07)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
@@ -15,6 +33,9 @@
 [getVisitorCode]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#getvisitorcode
 
 ## 10.24.0 (2026-05-05)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
@@ -33,6 +54,9 @@
 
 ## 10.23.0 (2026-04-23)
 
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
 ### Features
 
 - Improved the performance of the [`getDataFile()`](getDataFile) method. It now returns a cached [`DataFile`](DataFile) instance that is refreshed whenever the SDK configuration is updated.
@@ -48,6 +72,9 @@
   - @kameleoon/javascript-sdk@4.21.0
 
 ## 10.22.0 (2026-03-23)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
@@ -69,6 +96,9 @@
 
 ## 10.21.1 (2026-03-19)
 
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+
 ### Patch Changes
 
 - Stability and performance improvements
@@ -76,6 +106,9 @@
   - @kameleoon/javascript-sdk@4.19.1
 
 ## 10.21.0 (2026-03-04)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
@@ -89,6 +122,9 @@
   - @kameleoon/javascript-sdk@4.19.0
 
 ## 10.20.0 (2026-02-13)
+
+> [!WARNING]
+> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Features
 
