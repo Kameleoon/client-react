@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.26.1 (2026-05-14)
+
+### Patch Changes
+
+- Fixed the `/full` import for legacy TypeScript subpath export mapping to type declarations, ensuring it works regardless of the `moduleResolution` setting.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.24.1
+
 ## 10.26.0 (2026-05-13)
 
 > [!WARNING]
