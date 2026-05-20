@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.26.2 (2026-05-20)
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.24.2
+
 ## 10.26.1 (2026-05-14)
 
 ### Patch Changes
