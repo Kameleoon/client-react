@@ -5,7 +5,7 @@
 Kameleoon React SDK is used to work with Kameleoon Feature Flags and Experiments using native JavaScript or specific React Native APIs.
 The package provides a number of hooks and wrappers that can grant React oriented support for Kameleoon SDK when using it in React or React Native applications.
 
-This page describes the most basic configuration, for more in-depth review of all the hooks and configuration options follow [Official Kameleoon Documentation](https://developers.kameleoon.com/react-js-sdk.html)
+This page describes the most basic configuration, for more in-depth review of all the hooks and configuration options follow [Official Kameleoon Documentation](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/react-js-sdk)
 
 ## Contents
 
