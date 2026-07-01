@@ -360,6 +360,7 @@
 ### Patch Changes
 
 - Fixed an issue where `defaultDataFile` loaded configuration incorrectly when using the new [v3 data file format](sdk-config.kameleoon.eu/v3/<sitecode>).
+- Fixed an issue where the SDK could incorrectly evaluate the **Kameleoon Segment** targeting condition as `false`.
 - Updated dependencies
   - @kameleoon/javascript-sdk@4.13.0
 
