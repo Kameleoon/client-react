@@ -1,5 +1,14 @@
 # Change Log
 
+## 10.26.3 (2026-07-08)
+
+### Patch Changes
+
+- Tracking requests are now performed only when the visitor genuinely interacted with the page (`mousemove`/`scroll`) since the last tick, so hidden/backgrounded tabs no longer inflate visits. This helps reduce the number of requests sent to Kameleoon servers and prevents inflated visit counts. To continue sending data while the page isn't active, explicitly call [`flush({instant: true})`][flush]
+- Prevented duplicate activity tracking when the [Kameleoon Engine (Engine.js)](https://docs.kameleoon.com/developer-docs/web-experimentation/get-started/engine-execution-flow#experimentation-engine-overview) is present on the page (`window.Kameleoon`).
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.24.3
+
 ## 10.26.2 (2026-05-20)
 
 ### Patch Changes
@@ -360,7 +369,6 @@
 ### Patch Changes
 
 - Fixed an issue where `defaultDataFile` loaded configuration incorrectly when using the new [v3 data file format](sdk-config.kameleoon.eu/v3/<sitecode>).
-- Fixed an issue where the SDK could incorrectly evaluate the **Kameleoon Segment** targeting condition as `false`.
 - Updated dependencies
   - @kameleoon/javascript-sdk@4.13.0
 
