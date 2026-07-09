@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.26.4 (2026-07-09)
+
+### Patch Changes
+
+- Increased the visitor activity tracking interval from **15** to **60** seconds, reducing the number of activity tracking requests sent for engaged visitors.
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.24.4
+
 ## 10.26.3 (2026-07-08)
 
 ### Patch Changes
