@@ -1,9 +1,29 @@
 # Change Log
 
-## 10.26.5 (2026-07-10)
+## 10.27.0 (2026-08-24)
 
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
+### Features
+
+- Added support for SDK event handlers through the new [`setEventHandler`][setEventHandler] method:
+  - `EventType.DataFileUpdate` notifies when the SDK data file (configuration) is updated with [polling](https://docs.kameleoon.com/developer-docs/feature-experimentation/technical-reference/technical-considerations#polling-default) or [streaming](https://docs.kameleoon.com/developer-docs/feature-experimentation/technical-reference/technical-considerations#streaming-premium-option) modes.
+  - `EventType.HttpRequest` notifies when SDK HTTP requests complete successfully or fail.
+  - HTTP request events include the request type, HTTP status or failure details, and request duration.
+  - Passing `null` to `setEventHandler` clears the handler for the selected event type.
+- The [`onEvent`][onEvent] method and the `EventType.ConfigurationUpdate` event type have been deprecated in favor of `setEventHandler` with the `EventType.DataFileUpdate` event type.
+- Deprecate the [`isInitialized`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#isinitialized) method in favor of `isReady`.
+
+[setEventHandler]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#seteventhandler
+[onEvent]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/react-js-sdk#onevent
+
+### Patch Changes
+
+- Updated dependencies
+  - @kameleoon/javascript-sdk@4.25.0
+- Fix an issue where a failed configuration fetch marked the in-memory cache as fresh, so a repeated [`initialize`][initialize] call in an environment with unavailable storage could resolve successfully with an empty configuration instead of fetching again.
+- Targeting conditions of a type unsupported by the SDK are now evaluated as `false` instead of `true`, so visitors are no longer targeted by conditions the SDK cannot evaluate.
+
+
+## 10.26.5 (2026-07-10)
 
 ### Patch Changes
 
@@ -12,9 +32,6 @@
 
 ## 10.26.4 (2026-07-09)
 
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
-
 ### Patch Changes
 
 - Increased the visitor activity tracking interval from **15** to **60** seconds, reducing the number of activity tracking requests sent for engaged visitors.
@@ -22,9 +39,6 @@
   - @kameleoon/javascript-sdk@4.24.4
 
 ## 10.26.3 (2026-07-08)
-
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Patch Changes
 
@@ -35,18 +49,12 @@
 
 ## 10.26.2 (2026-05-20)
 
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
-
 ### Patch Changes
 
 - Updated dependencies
   - @kameleoon/javascript-sdk@4.24.2
 
 ## 10.26.1 (2026-05-14)
-
-> [!WARNING]
-> If you're upgrading from a version earlier than 10.15.0 and run into any unexpected build or SDK-related issues, please reach out to the Kameleoon Support Team. We're here to ensure your transition is smooth and will promptly address any concerns.
 
 ### Patch Changes
 
